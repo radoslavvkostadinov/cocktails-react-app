@@ -1,15 +1,24 @@
 
 // import './index.css';
 
-import Header from './components/Header/Header';
+import { Route, Routes, useLocation } from "react-router-dom"
+import Drinks from "./components/BestSellers/BestSellers";
+import Home from "./views/Home";
 
 
 function App() {
 
+
   return (
-    <div className='flex-grow-0 flex-shrink-0'>
-      <Header />
-    </div>
+    <>
+      <Routes>
+        <Route path='/' element={<Home />} />
+        {/* <Route path='/drinks' element={<Drinks />} /> */}
+        {/* <Route path='/random' element={<RandomDrink />} /> */}
+        {/* <Route path='/about' element={<About />} /> */}
+      </Routes>
+      <Drinks />
+    </>
   )
 }
 

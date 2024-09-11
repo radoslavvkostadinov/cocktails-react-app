@@ -34,7 +34,7 @@ export default function Categories() {
             {isOrdinaryDrink ? (
                 <div className="bg-indigo-950 pt-5">
                     {drinks && drinks.length > 0 ? (
-                        <div className="grid grid-cols-5 gap-5">
+                        <div className="grid grid-cols-5 gap-5 m-5">
                             {drinks.map((drink) => (
                                 <CardItem
                                     key={drink.idDrink}
@@ -48,7 +48,7 @@ export default function Categories() {
                     )}
                 </div>) : <div className="bg-indigo-950 pt-5">
                 {drinks && drinks.length > 0 ? (
-                    <div className="grid grid-cols-5 gap-5">
+                    <div className="grid grid-cols-5 gap-5 m-5">
                         {drinks.map((drink) => (
                             <CardItem
                                 key={drink.idDrink}

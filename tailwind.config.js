@@ -6,6 +6,9 @@ export default {
 	],
 	theme: {
 		extend: {
+			backgroundImage: {
+				'orange-wall': "url('/src/images/fresh.jpg')",
+			},
 			borderRadius: {
 				lg: 'var(--radius)',
 				md: 'calc(var(--radius) - 2px)',

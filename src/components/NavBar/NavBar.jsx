@@ -1,4 +1,4 @@
-import logo from '../../logo/logo.png'; // Correct relative path
+import logo from '../../images/logo.png';
 import {
     NavigationMenu,
     NavigationMenuContent,

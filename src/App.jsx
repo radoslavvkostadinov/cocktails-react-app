@@ -1,9 +1,11 @@
 
 // import './index.css';
 
-import { Route, Routes, useLocation } from "react-router-dom"
-import Drinks from "./components/BestSellers/BestSellers";
+import { Route, Routes } from "react-router-dom"
 import Home from "./views/Home";
+import About from "./views/About";
+import NavBar from "./components/NavBar/NavBar";
+import Categories from "./views/Categories";
 
 
 function App() {
@@ -11,13 +13,14 @@ function App() {
 
   return (
     <>
+      <NavBar />
       <Routes>
         <Route path='/' element={<Home />} />
-        {/* <Route path='/drinks' element={<Drinks />} /> */}
+        <Route path='/categories' element={<Categories />} />
         {/* <Route path='/random' element={<RandomDrink />} /> */}
-        {/* <Route path='/about' element={<About />} /> */}
+        <Route path='/about' element={<About />} />
       </Routes>
-      <Drinks />
+      {/* <Drinks /> */}
     </>
   )
 }

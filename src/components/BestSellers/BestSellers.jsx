@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import CardItem from "../Card/CardItem";
 import { useDrinksStore } from "@/store/drinksStore";
 
+
 export default function BestSellers() {
 
     const { drinks, loading, error, fetchDrinks } = useDrinksStore();

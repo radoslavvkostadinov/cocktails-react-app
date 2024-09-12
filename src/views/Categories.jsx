@@ -38,6 +38,7 @@ export default function Categories() {
                             {drinks.map((drink) => (
                                 <CardItem
                                     key={drink.idDrink}
+                                    id={drink.idDrink}
                                     title={drink.strDrink}
                                     image={drink.strDrinkThumb}
                                 />
@@ -52,6 +53,7 @@ export default function Categories() {
                         {drinks.map((drink) => (
                             <CardItem
                                 key={drink.idDrink}
+                                id={drink.idDrink}
                                 title={drink.strDrink}
                                 image={drink.strDrinkThumb}
                             />

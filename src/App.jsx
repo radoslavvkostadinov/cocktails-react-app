@@ -6,6 +6,7 @@ import Home from "./views/Home";
 import About from "./views/About";
 import NavBar from "./components/NavBar/NavBar";
 import Categories from "./views/Categories";
+import DrinkDetails from "./views/DrinkDetails";
 
 
 function App() {
@@ -17,8 +18,10 @@ function App() {
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/categories' element={<Categories />} />
+        <Route path='/drink/:id' element={<DrinkDetails />} />
         {/* <Route path='/random' element={<RandomDrink />} /> */}
         <Route path='/about' element={<About />} />
+        {/* <Route path='/*' element={<NoMatch />} /> */}
       </Routes>
       {/* <Drinks /> */}
     </>

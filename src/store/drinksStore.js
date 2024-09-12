@@ -13,8 +13,8 @@ const drinksStore = (set) => ({
             if (!response.ok) {
                 throw new Error(`HTTP error! status: ${response.status}`);
             }
-            const { drinks } = await response.json();
-            set({ drinks: drinks, loading: false });
+            const data = await response.json();
+            set({ drinks: data.drinks, loading: false });
         } catch (error) {
             set({ error, loading: false });
         }

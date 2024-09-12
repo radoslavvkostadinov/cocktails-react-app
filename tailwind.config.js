@@ -8,6 +8,7 @@ export default {
 		extend: {
 			backgroundImage: {
 				'orange-wall': "url('/src/images/fresh.jpg')",
+				'wallpaper': "url('/src/images/wallpaper.jpg')",
 			},
 			borderRadius: {
 				lg: 'var(--radius)',

@@ -17,7 +17,7 @@ export default function CardItem({ title, image }) {
 
     return (
         <Card
-            className="relative w-10/12 h-80 mx-auto flex flex-col justify-center items-center shadow-2xl bg-gray-100"
+            className="relative w-10/12 h-80 mx-auto flex flex-col justify-center items-center shadow-2xl bg-gray-100 rounded-md"
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
         >
@@ -28,12 +28,14 @@ export default function CardItem({ title, image }) {
                 <CardTitle className="text-center">{title}</CardTitle>
             </div>
             {isHovered && (
-                <div className="absolute inset-0 flex justify-center items-center bg-black bg-opacity-50">
-                    <Button className="bg-white text-black px-4 py-2 rounded-md mr-2">
-                        View Details
-                    </Button>
-                    <HeartIcon className="w-8 h-8 text-red-500" />
-                </div>
+                <>
+                    <div className="absolute inset-0 flex justify-center items-center bg-indigo-200 bg-opacity-50">
+                        <Button className="bg-white text-black px-4 py-2 rounded-md mr-2">
+                            View Recipe
+                        </Button>
+                        <HeartIcon className="w-7 h-7 text-red-500 absolute top-0 right-0 m-4" />
+                    </div>
+                </>
             )}
         </Card>
     );

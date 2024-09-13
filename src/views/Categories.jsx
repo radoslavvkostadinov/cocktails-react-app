@@ -6,32 +6,30 @@ import { useEffect, useState } from "react";
 export default function Categories() {
 
     const { drinks, loading, error, fetchDrinks } = useDrinksStore();
-    const [isOrdinaryDrink, setOrdinaryDrink] = useState(true);
-    const category = isOrdinaryDrink ? 'Ordinary_Drink' : 'Cocktail';
+    const [chooseCategory, setChooseCategory] = useState('Ordinary_Drink');
 
     useEffect(() => {
-        const url = `https://www.thecocktaildb.com/api/json/v1/1/filter.php?c=${category}`;
+        const url = `https://www.thecocktaildb.com/api/json/v1/1/filter.php?c=${chooseCategory}`;
         fetchDrinks(url);
-        console.log(drinks);
-    }, [fetchDrinks, category]);
+    }, [fetchDrinks, chooseCategory]);
 
-    const handleCategoryClick = () => {
-        if (isOrdinaryDrink !== true) {
-            setOrdinaryDrink(true);
-        } else if (isOrdinaryDrink !== false) {
-            setOrdinaryDrink(false);
-        }
+
+    const handleCategoryChange = (e) => {
+
+        const drink = e.target.textContent === 'Ordinary Drinks' ?
+            'Ordinary_Drink' : e.target.textContent
+
+        setChooseCategory(drink);
+
     };
 
     if (loading) return <p>Loading...</p>;
     if (error) return <p>Error: {error.message}</p>;
     return (
         <>
-            <SelectCategory
-                onClick={handleCategoryClick}
-            />
+            <SelectCategory onClick={handleCategoryChange} />
 
-            {isOrdinaryDrink ? (
+            {chooseCategory && (
                 <div className="bg-indigo-950 pt-5">
                     {drinks && drinks.length > 0 ? (
                         <div className="grid grid-cols-5 gap-5 m-5">
@@ -44,34 +42,13 @@ export default function Categories() {
                                 />
                             ))}
                         </div>
+
                     ) : (
                         <p>No drinks found.</p>
                     )}
-                </div>) : <div className="bg-indigo-950 pt-5">
-                {drinks && drinks.length > 0 ? (
-                    <div className="grid grid-cols-5 gap-5 m-5">
-                        {drinks.map((drink) => (
-                            <CardItem
-                                key={drink.idDrink}
-                                id={drink.idDrink}
-                                title={drink.strDrink}
-                                image={drink.strDrinkThumb}
-                            />
-                        ))}
-                    </div>
-                ) : (
-                    <p>No drinks found.</p>
-                )}
-            </div>}
-
+                </div>
+            )}
         </>
     );
 }
 
-
-// www.thecocktaildb.com/api/json/v1/1/filter.php?a=Alcoholic
-// www.thecocktaildb.com/api/json/v1/1/filter.php?a=Non_Alcoholic
-
-// Filter by Category
-// www.thecocktaildb.com/api/json/v1/1/filter.php?c=Ordinary_Drink
-// www.thecocktaildb.com/api/json/v1/1/filter.php?c=Cocktail

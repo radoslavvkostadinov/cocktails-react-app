@@ -19,7 +19,7 @@ export default function Categories() {
 
     const handleCategoryChange = (e) => {
 
-        const drink = e.target.textContent === 'Ordinary Drinks' ?
+        const drink = e.target.textContent === 'Ordinary Drink' ?
             'Ordinary_Drink' : e.target.textContent
         setChooseCategory(drink);
         setCurrentPage(1);

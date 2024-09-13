@@ -9,7 +9,7 @@ export default function SelectCategory({ onClick }) {
             <div className="flex justify-center items-center h-28 bg-wallpaper">
                 <Button
                     className="bg-orange-wall border text-base hover:font-bold text-white m-2"
-                    onClick={onClick}>Ordinary Drinks
+                    onClick={onClick}>Ordinary Drink
                 </Button>
                 <Button
                     className="bg-orange-wall border text-base hover:font-bold text-white m-2"

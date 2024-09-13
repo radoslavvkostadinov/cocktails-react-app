@@ -1,27 +1,23 @@
 export default function Footer() {
     return (
-        <footer className="bg-wallpaper w-full h-auto relative">
-            <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-10">
+        <footer className="bg-wallpaper w-full h-full bottom-0 mt-auto">
+            <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-10 mb-2">
                 <nav>
-                    <h6 className="text-lg font-semibold mb-4">Services</h6>
                     <ul className="space-y-2">
                         <li><a href="#" className="link link-hover text-gray-400 hover:text-white transition-colors">Branding</a></li>
                         <li><a href="#" className="link link-hover text-gray-400 hover:text-white transition-colors">Design</a></li>
-                        <li><a href="#" className="link link-hover text-gray-400 hover:text-white transition-colors">Marketing</a></li>
-                        <li><a href="#" className="link link-hover text-gray-400 hover:text-white transition-colors">Advertisement</a></li>
+                        
                     </ul>
                 </nav>
                 <nav>
-                    <h6 className="text-lg font-semibold mb-4">Company</h6>
                     <ul className="space-y-2">
-                        <li><a href="#" className="link link-hover text-gray-400 hover:text-white transition-colors">About us</a></li>
+                        <li><a href="#" className="link link-hover text-gray-400 text-sm hover:text-white transition-colors">About us</a></li>
                         <li><a href="#" className="link link-hover text-gray-400 hover:text-white transition-colors">Contact</a></li>
-                        <li><a href="#" className="link link-hover text-gray-400 hover:text-white transition-colors">Jobs</a></li>
-                        <li><a href="#" className="link link-hover text-gray-400 hover:text-white transition-colors">Press kit</a></li>
+
+
                     </ul>
                 </nav>
                 <nav>
-                    <h6 className="text-lg font-semibold mb-4">Social</h6>
                     <div className="flex space-x-6">
                         <a href="#" aria-label="Twitter" className="text-gray-400 hover:text-white transition-colors">
                             <svg
@@ -56,7 +52,7 @@ export default function Footer() {
                     </div>
                 </nav>
             </div>
-            <div className="mt-10 text-center text-sm text-gray-500 bg-orange-400 h-full">
+            <div className="text-center text-sm text-gray-500 bg-orange-400 h-5 m-0 p-=0">
                 © 2024 Your Company. All rights reserved.
             </div>
         </footer>

@@ -7,6 +7,7 @@ import About from "./views/About";
 import NavBar from "./components/NavBar/NavBar";
 import Categories from "./views/Categories";
 import DrinkDetails from "./views/DrinkDetails";
+import Footer from "./components/Footer/Footer";
 
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
         {/* <Route path='/*' element={<NoMatch />} /> */}
       </Routes>
       {/* <Drinks /> */}
+      <Footer />
     </>
   )
 }

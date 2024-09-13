@@ -47,27 +47,23 @@ export default function Paginated({ totalPages, currentPage, onPageChange }) {
                                     handlePageChange(current - 1);
                                 }
                             }}
-                            disabled={current === 1}
-                            className={current === 1 ? '' : ''}
+                            className={current === 1}
                         />
                     </PaginationItem>
                     {renderPaginationItems()}
-                    {current < totalPages && (
-                        <PaginationItem>
-                            <PaginationNext
-                                href="#"
-                                onClick={(e) => {
-                                    if (current === totalPages) {
-                                        e.preventDefault();
-                                    } else {
-                                        handlePageChange(current + 1);
-                                    }
-                                }}
-                                disabled={current === totalPages}
-                                className={current === totalPages ? 'cursor-not-allowed opacity-50' : ''}
-                            />
-                        </PaginationItem>
-                    )}
+                    <PaginationItem>
+                        <PaginationNext
+                            href="#"
+                            onClick={(e) => {
+                                if (current === totalPages) {
+                                    e.preventDefault();
+                                } else {
+                                    handlePageChange(current + 1);
+                                }
+                            }}
+                            className={current === totalPages}
+                        />
+                    </PaginationItem>
                 </PaginationContent>
             </Pagination>
         </div>

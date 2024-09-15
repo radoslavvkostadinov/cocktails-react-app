@@ -1,24 +1,26 @@
+import logo from '../../images/logo.png';
 export default function Footer() {
     return (
-        <footer className="bg-wallpaper w-full h-full bottom-0 mt-auto">
-            <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-10 mb-2">
+        <footer className="bg-white w-full h-full bottom-0 mt-auto">
+            <div className="max-w-7xl p-2 mx-auto grid grid-cols-1 md:grid-cols-3 gap-10 mb-2">
+
                 <nav>
-                    <ul className="space-y-2">
-                        <li><a href="#" className="link link-hover text-gray-400 hover:text-white transition-colors">Branding</a></li>
-                        <li><a href="#" className="link link-hover text-gray-400 hover:text-white transition-colors">Design</a></li>
-                        
+                    <ul className="space">
+                        <li><a href="#" className="link link-hover text-sm text-gray-400 hover:text-white transition-colors">Branding</a></li>
+                        <li><a href="#" className="link link-hover text-sm text-gray-400 hover:text-white transition-colors">Design</a></li>
+
                     </ul>
                 </nav>
                 <nav>
-                    <ul className="space-y-2">
-                        <li><a href="#" className="link link-hover text-gray-400 text-sm hover:text-white transition-colors">About us</a></li>
-                        <li><a href="#" className="link link-hover text-gray-400 hover:text-white transition-colors">Contact</a></li>
+                    <ul className="space">
+                        <li><a href="#" className="link link-hover text-sm text-gray-400 text-sm hover:text-white transition-colors">About us</a></li>
+                        <li><a href="#" className="link link-hover text-sm text-gray-400 hover:text-white transition-colors">Contact</a></li>
 
 
                     </ul>
                 </nav>
                 <nav>
-                    <div className="flex space-x-6">
+                    <div className="flex space-x-6 p-3">
                         <a href="#" aria-label="Twitter" className="text-gray-400 hover:text-white transition-colors">
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
@@ -52,7 +54,7 @@ export default function Footer() {
                     </div>
                 </nav>
             </div>
-            <div className="text-center text-sm text-gray-500 bg-orange-400 h-5 m-0 p-=0">
+            <div className="text-center text-sm text-gray-500 bg-orange-300 h-5 m-0 p-=0">
                 © 2024 Your Company. All rights reserved.
             </div>
         </footer>

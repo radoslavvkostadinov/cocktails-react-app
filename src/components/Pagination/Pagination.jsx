@@ -35,7 +35,7 @@ export default function Paginated({ totalPages, currentPage, onPageChange }) {
 
     return (
         <div>
-            <Pagination className="bg-indigo-950 text-white">
+            <Pagination className="bg-indigo-950 text-white pb-4">
                 <PaginationContent>
                     <PaginationItem>
                         <PaginationPrevious

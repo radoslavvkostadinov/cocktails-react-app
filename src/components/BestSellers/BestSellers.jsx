@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import CardItem from "../Card/CardItem";
 import { useDrinksStore } from "@/store/drinksStore";
 import Paginated from "@/components/Pagination/Pagination";
+import Header from "../Header/Header";
 
 export default function BestSellers() {
 
@@ -17,7 +18,7 @@ export default function BestSellers() {
     if (loading) return <p>Loading...</p>;
     if (error) return <p>Error: {error.message}</p>;
 
-    const totalPages = Math.ceil(drinks.length / itemsPerPage);
+    const totalPages = Math.ceil(drinks?.length / itemsPerPage);
 
     const handlePageChange = (page) => {
         setCurrentPage(page);
@@ -26,10 +27,11 @@ export default function BestSellers() {
 
     const startIndex = (currentPage - 1) * itemsPerPage;
     const endIndex = startIndex + itemsPerPage;
-    const currentItems = drinks.slice(startIndex, endIndex);
+    const currentItems = drinks?.slice(startIndex, endIndex);
 
     return (
         <>
+            <Header title='Best sellers' />
             <div className="bg-indigo-950 pt-5 pb-4">
                 {currentItems && currentItems.length > 0 ? (
                     <div className="grid grid-cols-5 gap-5 m-5 h-full">
@@ -46,13 +48,13 @@ export default function BestSellers() {
                     <p>No drinks found.</p>
                 )}
             </div>
-           
-                <Paginated
-                    totalPages={totalPages}
-                    currentPage={currentPage}
-                    onPageChange={handlePageChange}
-                />
-            
+
+            <Paginated
+                totalPages={totalPages}
+                currentPage={currentPage}
+                onPageChange={handlePageChange}
+            />
+
         </>
     );
 }

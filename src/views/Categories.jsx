@@ -29,7 +29,7 @@ export default function Categories() {
     if (loading) return <p>Loading...</p>;
     if (error) return <p>Error: {error.message}</p>;
 
-    const totalPages = Math.ceil(drinks.length / itemsPerPage);
+    const totalPages = Math.ceil(drinks?.length / itemsPerPage);
 
     const handlePageChange = (page) => {
         setCurrentPage(page);
@@ -38,7 +38,7 @@ export default function Categories() {
 
     const startIndex = (currentPage - 1) * itemsPerPage;
     const endIndex = startIndex + itemsPerPage;
-    const currentItems = drinks.slice(startIndex, endIndex);
+    const currentItems = drinks?.slice(startIndex, endIndex);
     return (
         <>
             <SelectCategory onClick={handleCategoryChange} />

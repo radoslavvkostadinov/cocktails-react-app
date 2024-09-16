@@ -22,7 +22,7 @@ export default function CardItem({ id, title, image }) {
         const storedFavorites = JSON.parse(localStorage.getItem('favorites')) || [];
         setFavorites(storedFavorites);
         setIsFavorite(storedFavorites.some(drink => drink.id === id));
-    }, [id, favorites]);
+    }, []);
 
     const toggleFavorite = () => {
         const updatedFavorites = isFavorite
@@ -33,6 +33,7 @@ export default function CardItem({ id, title, image }) {
         localStorage.setItem('favorites', JSON.stringify(updatedFavorites));
         setIsFavorite(!isFavorite);
     };
+
     return (
         <Card
             className="relative w-10/12 h-80 mx-auto flex flex-col justify-center items-center shadow-2xl bg-gray-100 rounded-md"
@@ -49,13 +50,17 @@ export default function CardItem({ id, title, image }) {
                 <>
                     <div className="absolute inset-0 flex justify-center items-center bg-indigo-200 bg-opacity-50">
                         <Link to={`/drink/${id}`}>
-                            <Button className="bg-white text
-                            -black px-4 py-2 rounded-md mr-2">
+                            <Button
+                             className="text
+                            -indigo-950 px-4 py-2 rounded-md mr-2 hover:bg-orange-300"
+                            variant="secondary"
+                            size="sm"
+                            >
                                 View Recipe
                             </Button>
                         </Link>
                         <button onClick={toggleFavorite}>
-                            <span className={`text-2xl `}>
+                            <span className="text-2xl absolute top-2 right-2">
                                 {isFavorite ? '❤️' : '🤍'}
                             </span>
                         </button>

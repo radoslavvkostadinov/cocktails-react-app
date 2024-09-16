@@ -10,6 +10,7 @@ import DrinkDetails from "./views/DrinkDetails";
 import Footer from "./components/Footer/Footer";
 import RandomDrink from "./views/RandomDrink";
 import FavoriteDrinks from "./views/FavoriteDrinks";
+import SearchDrinks from "./views/SearchDrinks";
 
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
           <Route path='/about' element={<About />} />
           <Route path='/random' element={<RandomDrink />} />
           <Route path='/favorites' element={<FavoriteDrinks />} />
+          <Route path='/search' element={<SearchDrinks />} />
         </Routes>
       </main>
       <Footer />

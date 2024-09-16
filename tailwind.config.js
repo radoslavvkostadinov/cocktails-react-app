@@ -10,6 +10,7 @@ export default {
 			backgroundImage: {
 				'orange-wall': "url('/src/images/fresh.jpg')",
 				'wallpaper': "url('/src/images/wallpaper.jpg')",
+				'white-wall': "url('/src/images/white-wall.jpg')",
 			},
 			borderRadius: {
 				lg: 'var(--radius)',

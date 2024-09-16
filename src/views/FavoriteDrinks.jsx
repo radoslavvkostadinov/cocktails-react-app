@@ -12,7 +12,7 @@ export default function FavoriteDrinks() {
     const storedFavorites = JSON.parse(localStorage.getItem('favorites')) || [];
     setFavoriteDrinks(storedFavorites);
     console.log(favoriteDrinks);
-  }, [favoriteDrinks]);
+  }, []);
 
   const totalPages = Math.ceil(favoriteDrinks.length / itemsPerPage);
   const handlePageChange = (page) => {

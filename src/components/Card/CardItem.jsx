@@ -7,20 +7,30 @@ import {
     CardHeader,
     CardTitle,
 } from "@/components/ui/card"
-import { HeartIcon } from "@radix-ui/react-icons";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Button } from "../ui/button";
 import { Link } from "react-router-dom";
-import DrinkDetails from "@/views/DrinkDetails";
-import { EMPTY_HEART, FULL_HEART } from "@/constants";
 
 
 export default function CardItem({ id, title, image }) {
 
     const [isHovered, setIsHovered] = useState(false);
     const [isFavorite, setIsFavorite] = useState(false);
+    const [favorites, setFavorites] = useState([]);
+
+    useEffect(() => {
+        const storedFavorites = JSON.parse(localStorage.getItem('favorites')) || [];
+        setFavorites(storedFavorites);
+        setIsFavorite(storedFavorites.some(drink => drink.id === id));
+    }, [id, favorites]);
 
     const toggleFavorite = () => {
+        const updatedFavorites = isFavorite
+            ? favorites.filter(drink => drink.id !== id)
+            : [...favorites, { id, title, image }];
+
+        setFavorites(updatedFavorites);
+        localStorage.setItem('favorites', JSON.stringify(updatedFavorites));
         setIsFavorite(!isFavorite);
     };
     return (
@@ -28,7 +38,6 @@ export default function CardItem({ id, title, image }) {
             className="relative w-10/12 h-80 mx-auto flex flex-col justify-center items-center shadow-2xl bg-gray-100 rounded-md"
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
-        // onClick={onClick}
         >
             <div className="flex flex-col justify-center items-center">
                 <img src={image}
@@ -40,7 +49,8 @@ export default function CardItem({ id, title, image }) {
                 <>
                     <div className="absolute inset-0 flex justify-center items-center bg-indigo-200 bg-opacity-50">
                         <Link to={`/drink/${id}`}>
-                            <Button className="bg-white text-black px-4 py-2 rounded-md mr-2">
+                            <Button className="bg-white text
+                            -black px-4 py-2 rounded-md mr-2">
                                 View Recipe
                             </Button>
                         </Link>

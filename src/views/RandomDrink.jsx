@@ -11,12 +11,10 @@ export default function RandomDrink() {
     useEffect(() => {
         const url = 'https://www.thecocktaildb.com/api/json/v1/1/random.php';
         fetchDrinks(url);
-        console.log(drinks);
     }, []);
 
 
     const drink = drinks && drinks.length === 1 ? drinks[0] : null;
-    console.log(drink);
     if (loading) return <div>Loading...</div>;
     if (error) return <div>Error: {error.message}</div>;
     if (!drinks) return <div>No drink found</div>;
@@ -27,11 +25,10 @@ export default function RandomDrink() {
                     <img src={drink.strDrinkThumb} alt={drink.strDrink} className="w-64 h-64 object-cover rounded-t-lg" />
                     <div className="p-4">
                         <h5 className="text-xl font-bold mb-2">{drink.strDrink}</h5>
-            
+
                     </div>
                 </div>
             )}
         </div>
     );
 }
- 

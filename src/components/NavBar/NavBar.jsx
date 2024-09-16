@@ -64,7 +64,10 @@ export default function NavBar() {
                     </svg>
                 </Button>
                 <Link to="/favorites">
-                    <Button className="rounded-full">
+                    <Button
+                        variant='ghost'
+                        className="rounded-full"
+                    >
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
                             className="h-5 w-5"

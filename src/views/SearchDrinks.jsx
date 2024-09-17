@@ -53,12 +53,12 @@ export default function SearchDrinks() {
                     value={searchTerm}
                     onChange={handleSearchChange}
                     placeholder="Search for drinks..."
-                    className="px-4 py-2 border rounded-md"
+                    className="px-4 py-2 border rounded-md m-10 w-full"
                     autoFocus
                 />
             </div>
             {searchTerm && (
-                <div className="bg-indigo-950 pt-5 pb-4 w-full">
+                <div className="bg-indigo-950 pt-5 pb-4 w-full h-full">
                     {currentItems && currentItems.length > 0 ? (
                         <div className="grid grid-cols-5 gap-5 m-5 h-full">
                             {currentItems.map((drink) => (

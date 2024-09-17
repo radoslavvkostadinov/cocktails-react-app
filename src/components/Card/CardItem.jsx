@@ -54,7 +54,7 @@ export default function CardItem({ id, title, image, onFavoriteChange }) {
                 <img src={image}
                     alt={title}
                     className="rounded-md w-full p-2 rounded-xl" />
-                <CardTitle className="text-center">{title}</CardTitle>
+                <CardTitle className="text-center mb-1">{title}</CardTitle>
             </div>
             {isHovered && (
                 <>

@@ -1,16 +1,11 @@
 import logo from '../../images/logo.png';
 import {
     NavigationMenu,
-    NavigationMenuContent,
-    NavigationMenuIndicator,
     NavigationMenuItem,
-    NavigationMenuLink,
     NavigationMenuList,
     NavigationMenuTrigger,
-    NavigationMenuViewport,
 } from "@/components/ui/navigation-menu"
 import { Button } from '../ui/button';
-import { NavLink } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 
 

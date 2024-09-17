@@ -33,7 +33,7 @@ export default function BestSellers() {
     return (
         <>
             <Header title='Best sellers' />
-            <div className="bg-indigo-950 pt-5 pb-4">
+            <div className="bg-indigo-950 pt-5 pb-3">
                 {currentItems && currentItems.length > 0 ? (
                     <div className="grid grid-cols-5 gap-5 m-5 h-full">
                         {currentItems.map((drink) => (

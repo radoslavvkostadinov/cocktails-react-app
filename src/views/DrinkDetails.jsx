@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import { search } from "@/customFunctions";
 import { Badge } from "@/components/ui/badge";
 import Loading from "@/components/Loading/Loading";
+import BiggerCardItem from "@/components/BiggerCardItem/BiggerCardItem";
 
 export default function DrinkDetails() {
 
@@ -35,7 +36,13 @@ export default function DrinkDetails() {
             <div className="mx-auto p-6 rounded-lg shadow-md flex flex-col md:flex-row justify-center">
                 <div className="md:w-1/2 flex flex-col items-center mb-4 w-full h-full md:mb-0">
                     <div>
-                        <img src={drink.strDrinkThumb} alt={drink.strDrink} className="w-11/12 h-full rounded-lg shadow-lg mb-4" />
+                        <BiggerCardItem
+                            strDrink={drink.strDrink}
+                            strDrinkThumb={drink.strDrinkThumb}
+                            id={drink.idDrink}
+                            title={drink.strDrink}
+                            image={drink.strDrinkThumb}
+                        />
                         <div>
                             <h1 className="text-white text-xl mb-1">Categories</h1>
                             <Badge variant="secondary" className="text-base">{drink.strCategory}</Badge>

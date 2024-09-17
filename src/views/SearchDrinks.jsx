@@ -1,4 +1,5 @@
 import CardItem from '@/components/Card/CardItem';
+import Loading from '@/components/Loading/Loading';
 import Paginated from '@/components/Pagination/Pagination';
 import { useDrinksStore } from '@/store/drinksStore';
 import { useEffect, useState } from 'react';
@@ -32,7 +33,7 @@ export default function SearchDrinks() {
     }, [fetchDrinks, searchTerm]);
 
 
-    if (loading) return <p>Loading...</p>;
+    if (loading) return <Loading />;
     if (error) return <p>Error: {error.message}</p>;
 
     const totalPages = Math.ceil(filteredDrinks?.length / itemsPerPage);

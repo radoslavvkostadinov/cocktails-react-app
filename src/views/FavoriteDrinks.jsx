@@ -10,9 +10,9 @@ export default function FavoriteDrinks() {
 
   useEffect(() => {
     const storedFavorites = JSON.parse(localStorage.getItem('favorites')) || [];
-    setFavoriteDrinks(storedFavorites);
     console.log(favoriteDrinks);
-  }, []);
+    setFavoriteDrinks(storedFavorites);
+}, []);
 
   const totalPages = Math.ceil(favoriteDrinks.length / itemsPerPage);
   const handlePageChange = (page) => {
@@ -22,7 +22,11 @@ export default function FavoriteDrinks() {
   const startIndex = (currentPage - 1) * itemsPerPage;
   const endIndex = startIndex + itemsPerPage;
   const currentItems = favoriteDrinks.slice(startIndex, endIndex);
-  console.log(currentItems);
+ 
+  const handleFavoriteChange = (updatedFavorites) => {
+    setFavoriteDrinks(updatedFavorites);
+    localStorage.setItem('favorites', JSON.stringify(updatedFavorites));
+  };
 
 
   return (
@@ -37,6 +41,7 @@ export default function FavoriteDrinks() {
                 id={drink.id}
                 title={drink.title}
                 image={drink.image}
+                onFavoriteChange={handleFavoriteChange}
               />
             ))}
           </div>

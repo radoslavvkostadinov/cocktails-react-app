@@ -52,7 +52,8 @@ export default function NavBar() {
                 <Link to="/search">
                     <Button
                         variant='ghost'
-                        className="rounded-full"
+                        className="text-indigo-950"
+
                     >
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
@@ -71,7 +72,7 @@ export default function NavBar() {
                 <Link to="/favorites">
                     <Button
                         variant='ghost'
-                        className="rounded-full"
+                        className="text-indigo-950"
                     >
                         <svg
                             xmlns="http://www.w3.org/2000/svg"

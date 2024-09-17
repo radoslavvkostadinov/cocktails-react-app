@@ -12,27 +12,37 @@ import { Button } from "../ui/button";
 import { Link } from "react-router-dom";
 
 
-export default function CardItem({ id, title, image }) {
+export default function CardItem({ id, title, image, onFavoriteChange }) {
 
     const [isHovered, setIsHovered] = useState(false);
     const [isFavorite, setIsFavorite] = useState(false);
-    const [favorites, setFavorites] = useState([]);
 
     useEffect(() => {
-        const storedFavorites = JSON.parse(localStorage.getItem('favorites')) || [];
-        setFavorites(storedFavorites);
-        setIsFavorite(storedFavorites.some(drink => drink.id === id));
-    }, []);
+        try {
+            const storedFavorites = JSON.parse(localStorage.getItem('favorites')) || [];
+            setIsFavorite(storedFavorites.some(drink => drink.id === id));
+        } catch (e) {
+            console.error('Error parsing favorites from localStorage', e);
+            setIsFavorite(false);
+        }
+    }, [id]);
 
     const toggleFavorite = () => {
+        const storedFavorites = JSON.parse(localStorage.getItem('favorites')) || [];
         const updatedFavorites = isFavorite
-            ? favorites.filter(drink => drink.id !== id)
-            : [...favorites, { id, title, image }];
+            ? storedFavorites.filter(drink => drink.id !== id)
+            : [...storedFavorites, { id, title, image }];
 
-        setFavorites(updatedFavorites);
         localStorage.setItem('favorites', JSON.stringify(updatedFavorites));
         setIsFavorite(!isFavorite);
-    };
+
+        try {
+            onFavoriteChange(updatedFavorites);
+
+        } catch (e) {
+            e
+        }
+    }
 
     return (
         <Card
@@ -51,10 +61,10 @@ export default function CardItem({ id, title, image }) {
                     <div className="absolute inset-0 flex justify-center items-center bg-indigo-200 bg-opacity-50">
                         <Link to={`/drink/${id}`}>
                             <Button
-                             className="text
+                                className="text
                             -indigo-950 px-4 py-2 rounded-md mr-2 hover:bg-orange-300"
-                            variant="secondary"
-                            size="sm"
+                                variant="secondary"
+                                size="sm"
                             >
                                 View Recipe
                             </Button>

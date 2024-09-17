@@ -3,6 +3,7 @@ import { useDrinksStore } from "@/store/drinksStore";
 import { useParams } from "react-router-dom";
 import { search } from "@/customFunctions";
 import { Badge } from "@/components/ui/badge";
+import Loading from "@/components/Loading/Loading";
 
 export default function DrinkDetails() {
 
@@ -20,7 +21,7 @@ export default function DrinkDetails() {
 
 
     const drink = drinks && drinks.length > 0 ? drinks[0] : null;
-    if (loading) return <div>Loading...</div>;
+    if (loading) return <Loading />;
     if (error) return <div>Error: {error.message}</div>;
     if (!drinks) return <div>No drink found</div>;
 

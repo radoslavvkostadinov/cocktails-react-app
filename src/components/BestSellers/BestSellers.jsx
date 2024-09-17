@@ -3,6 +3,7 @@ import CardItem from "../Card/CardItem";
 import { useDrinksStore } from "@/store/drinksStore";
 import Paginated from "@/components/Pagination/Pagination";
 import Header from "../Header/Header";
+import Loading from "../Loading/Loading";
 
 export default function BestSellers() {
 
@@ -15,7 +16,7 @@ export default function BestSellers() {
         fetchDrinks(url);
     }, [fetchDrinks]);
 
-    if (loading) return <p>Loading...</p>;
+    if (loading) return <Loading />;
     if (error) return <p>Error: {error.message}</p>;
 
     const totalPages = Math.ceil(drinks?.length / itemsPerPage);

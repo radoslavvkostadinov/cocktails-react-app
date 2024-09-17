@@ -1,4 +1,5 @@
 import CardItem from "@/components/Card/CardItem";
+import Loading from "@/components/Loading/Loading";
 import Paginated from "@/components/Pagination/Pagination";
 import SelectCategory from "@/components/SelectCategory/SelectCategory";
 import { useDrinksStore } from "@/store/drinksStore";
@@ -26,7 +27,7 @@ export default function Categories() {
 
     };
 
-    if (loading) return <p>Loading...</p>;
+    if (loading) return <Loading />;
     if (error) return <p>Error: {error.message}</p>;
 
     const totalPages = Math.ceil(drinks?.length / itemsPerPage);

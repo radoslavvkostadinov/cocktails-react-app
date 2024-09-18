@@ -12,13 +12,10 @@ import { Link } from 'react-router-dom';
 export default function NavBar() {
     return (
         <header className="flex bg-white drop-shadow-md justify-between items-center h-16 px-4 md:px-6 lg:px-10 xl:px-16 md:flex">
-            <a href="/"
-            >
-                <img
-                    src={logo}
-                    className='sm:w-64 sm:h-64 sm:ml-64 md:w-64 md:h-60 md:ml-64 lg:ml-0'
-                />
-            </a>
+            <img
+                src={logo}
+                className='sm:w-64 sm:h-64 sm:ml-64 md:w-64 md:h-60 md:ml-64 lg:ml-0'
+            />
             <NavigationMenu>
                 <NavigationMenuList className="hidden lg:flex">
                     <NavigationMenuItem>
@@ -48,46 +45,46 @@ export default function NavBar() {
                     </NavigationMenuItem>
                 </NavigationMenuList>
             </NavigationMenu>
-            
-                <Link to="/search">
-                    <Button
-                        variant='icon'
-                        className="text-indigo-950 fixed top-4 right-8"
 
-                    >
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            className="h-5 w-5"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            stroke="currentColor">
-                            <path
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                strokeWidth="2"
-                                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                        </svg>
-                    </Button>
-                </Link>
-                <Link to="/favorites">
-                    <Button
-                        variant='icon'
-                       className="text-indigo-950 fixed top-4 right-1"
-                    >
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            className="h-5 w-5"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            stroke="currentColor">
-                            <path
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                strokeWidth="2"
-                                d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
-                        </svg>
-                    </Button>
-                </Link>
+            <Link to="/search">
+                <Button
+                    variant='icon'
+                    className="text-indigo-950 fixed top-4 right-8"
+
+                >
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="h-5 w-5"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth="2"
+                            d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                    </svg>
+                </Button>
+            </Link>
+            <Link to="/favorites">
+                <Button
+                    variant='icon'
+                    className="text-indigo-950 fixed top-4 right-1"
+                >
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="h-5 w-5"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth="2"
+                            d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+                    </svg>
+                </Button>
+            </Link>
         </header>
     )
 }

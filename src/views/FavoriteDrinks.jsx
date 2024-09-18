@@ -1,4 +1,5 @@
 import CardItem from '@/components/Card/CardItem';
+import Header from '@/components/Header/Header';
 import Paginated from '@/components/Pagination/Pagination';
 import { useState, useEffect } from 'react';
 
@@ -12,7 +13,7 @@ export default function FavoriteDrinks() {
     const storedFavorites = JSON.parse(localStorage.getItem('favorites')) || [];
     console.log(favoriteDrinks);
     setFavoriteDrinks(storedFavorites);
-}, []);
+  }, []);
 
   const totalPages = Math.ceil(favoriteDrinks.length / itemsPerPage);
   const handlePageChange = (page) => {
@@ -22,7 +23,7 @@ export default function FavoriteDrinks() {
   const startIndex = (currentPage - 1) * itemsPerPage;
   const endIndex = startIndex + itemsPerPage;
   const currentItems = favoriteDrinks.slice(startIndex, endIndex);
- 
+
   const handleFavoriteChange = (updatedFavorites) => {
     setFavoriteDrinks(updatedFavorites);
     localStorage.setItem('favorites', JSON.stringify(updatedFavorites));
@@ -31,10 +32,10 @@ export default function FavoriteDrinks() {
 
   return (
     <div>
-      <h1>Favorite Drinks</h1>
+      <Header title="Favorite Drinks" />
       <div className="bg-indigo-950 pt-5 pb-4">
         {currentItems && currentItems.length > 0 ? (
-          <div className="grid grid-cols-5 gap-5 m-5 h-full">
+          <div className="grid grid-cols-1 sm:grid-cols-2 sm:m-2 sm:gap-10 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-5 gap-6 m-5 h-full">
             {currentItems.map((drink) => (
               <CardItem
                 key={drink.id}
@@ -46,14 +47,17 @@ export default function FavoriteDrinks() {
             ))}
           </div>
         ) : (
-          <p>No drinks found.</p>
+          <p className="text-white text-center text-2xl">You haven't added any favorites yet.</p>
         )}
       </div>
-      <Paginated
-        totalPages={totalPages}
-        currentPage={currentPage}
-        onPageChange={handlePageChange}
-      />
+      {favoriteDrinks.length && (
+        <Paginated
+          totalPages={totalPages}
+          currentPage={currentPage}
+          onPageChange={handlePageChange}
+        />
+      )}
+
     </div>
   );
 }

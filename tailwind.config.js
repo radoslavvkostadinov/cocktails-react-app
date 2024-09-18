@@ -63,7 +63,7 @@ export default {
 					roboto: ['Roboto', 'sans-serif'],
 				},
 				screens: {
-					'xs': '345px',
+					'xs': '400px',
 					'sm': '640px',
 					'md': '768px',
 					'lg': '1050px',

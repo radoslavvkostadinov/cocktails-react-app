@@ -36,17 +36,12 @@ export default function SearchDrinks() {
     if (loading) return <Loading />;
     if (error) return <p>Error: {error.message}</p>;
 
-    const totalPages = Math.ceil(filteredDrinks?.length / itemsPerPage);
-
-    const handlePageChange = (page) => {
-        setCurrentPage(page);
-    };
 
     const startIndex = (currentPage - 1) * itemsPerPage;
     const endIndex = startIndex + itemsPerPage;
     const currentItems = filteredDrinks?.slice(startIndex, endIndex);
     return (
-        <div className="flex flex-col items-center h-screen">
+        <div className="flex flex-col items-center justify-center">
             <div className="text-center">
                 <input
                     type="text"
@@ -58,9 +53,9 @@ export default function SearchDrinks() {
                 />
             </div>
             {searchTerm && (
-                <div className="bg-indigo-950 pt-5 pb-4 w-full h-full">
+                <div className="bg-indigo-950 pt-5 pb-4 w-full">
                     {currentItems && currentItems.length > 0 ? (
-                        <div className="grid grid-cols-5 gap-5 m-5 h-full">
+                        <div className="grid grid-cols-1 sm:grid-cols-2 sm:m-2 sm:gap-10 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-5 gap-6 m-5 h-full">
                             {currentItems.map((drink) => (
                                 <CardItem
                                     key={drink.idDrink}
@@ -71,13 +66,8 @@ export default function SearchDrinks() {
                             ))}
                         </div>
                     ) : (
-                        <p className="text-white text-center">No drinks found.</p>
+                        <p className="text-white text-center text-2xl">No drinks found.</p>
                     )}
-                    <Paginated
-                        totalPages={totalPages}
-                        currentPage={currentPage}
-                        onPageChange={handlePageChange}
-                    />
                 </div>
             )}
         </div>

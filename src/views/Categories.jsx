@@ -18,10 +18,11 @@ export default function Categories() {
     }, [fetchDrinks, chooseCategory]);
 
 
-    const handleCategoryChange = (e) => {
+    const handleCategoryChange = (category) => {
 
-        const drink = e.target.textContent === 'Ordinary Drink' ?
-            'Ordinary_Drink' : e.target.textContent
+      console.log(category);
+        const drink = category === 'Ordinary Drink' ?
+            'Ordinary_Drink' : category
         setChooseCategory(drink);
         setCurrentPage(1);
 
@@ -46,7 +47,7 @@ export default function Categories() {
             {chooseCategory && (
                 <div className="bg-indigo-950 pt-5 pb-4">
                     {currentItems && currentItems.length > 0 ? (
-                        <div className="grid grid-cols-5 gap-5 m-5 h-full">
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6 m-5 h-full">
                             {currentItems.map((drink) => (
                                 <CardItem
                                     key={drink.idDrink}

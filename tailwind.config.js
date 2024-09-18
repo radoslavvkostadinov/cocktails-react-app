@@ -68,8 +68,19 @@ export default {
 					'md': '768px',
 					'lg': '1050px',
 					'xl': '1380px',
-					'2xl': '1536px',
-				}
+					'2xl': '1920px',
+				},
+				gridTemplateColumns: {
+					"two-by-two": "minmax(0, 1fr) 12px minmax(0, 1fr)",
+				},
+				gridTemplateRows: {
+					"sm-main-grid":
+						"minmax(0, 1fr) minmax(0, 1fr) minmax(0, 0.4fr) minmax(0, 1fr) minmax(0, 1fr)",
+					"md-main-grid":
+						"minmax(0, 1fr) minmax(0, 1fr) minmax(0, 0.6fr) minmax(0, 1fr) minmax(0, 1fr)",
+					"xl-main-grid":
+						"minmax(0, 1fr) minmax(0, 1fr) minmax(0, 0.5fr) minmax(0, 1fr) minmax(0, 1fr)",
+				},
 
 			}
 		}

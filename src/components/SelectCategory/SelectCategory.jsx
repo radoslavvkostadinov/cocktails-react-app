@@ -1,46 +1,62 @@
 // import NavBar from "../NavBar/NavBar";
 
+import { useEffect, useState } from "react";
 import { Button } from "../ui/button";
 
 export default function SelectCategory({ onClick }) {
+
+    const categories = ["Ordinary Drink", "Cocktail", "Cocoa", "Shot", "Shake", "Beer", "Homemade Liqueur", "Soft Drink"];
+
+    const [isSmallScreen, setIsSmallScreen] = useState(false);
+    const [selectCategory, setSelectCategory] = useState("Select Category")
+
+    const handleChange = (e) => {
+
+        const category = categories.find((category) => category === e.target.value);
+        console.log(category);
+        setSelectCategory(category);
+        onClick(category);
+    }
+
+    useEffect(() => {
+        const handleResize = () => {
+            setIsSmallScreen(window.innerWidth < 1380);
+        };
+
+        window.addEventListener('resize', handleResize);
+        handleResize();
+
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
+
     return (
         <>
-            {/* <NavBar /> */}
             <div className="flex justify-center items-center h-28 bg-wallpaper">
-                <Button
-                    className="bg-orange-wall border text-md text-white m-2 hover:text-indigo-950"
-                    onClick={onClick}>Ordinary Drink
-                </Button>
-                <Button
-                    className="bg-orange-wall border text-md text-white m-2 hover:text-indigo-950"
-                    onClick={onClick}>Cocktail
-                </Button>
-                <Button
-                    className="bg-orange-wall border text-md text-white m-2 hover:text-indigo-950"
-                    onClick={onClick}>Cocoa
-                </Button>
-                <Button
-                    className="bg-orange-wall border text-md text-white m-2 hover:text-indigo-950"
-                    onClick={onClick}>Shot
-                </Button>
-                <Button
-                    className="bg-orange-wall border text-md text-white m-2 hover:text-indigo-950"
-                    onClick={onClick}>Shake
-                </Button>
-                <Button
-                    className="bg-orange-wall border text-md text-white m-2 hover:text-indigo-950"
-                    onClick={onClick}>Beer
-                </Button>
-                <Button
-                    className="bg-orange-wall border text-md text-white m-2 hover:text-indigo-950"
-                    onClick={onClick}>Homemade Liqueur
-                </Button>
-                <Button
-                    className="bg-orange-wall border text-md text-white m-2 hover:text-indigo-950"
-                    onClick={onClick}>Soft Drink
-                </Button>
+                {isSmallScreen ? (
+                    <select
+                        className="px-4 py-2 border rounded-md m-10 w-64"
+                        onChange={handleChange}
+                    >
+
+                        {categories.map((category) => (
+                            <option key={category} value={category} onChange={() => onClick(handleChange)}>
+                                {category}
+                            </option>
+                        ))}
+                    </select>
+                ) : (
+                    categories.map((category) => (
+                        <Button
+                            key={category}
+                            className="bg-orange-wall border text-md text-white m-2 hover:text-indigo-950"
+                            onClick={() => onClick(category)}
+                        >
+                            {category}
+                        </Button>
+                    ))
+                )}
             </div>
         </>
-    )
+    );
 }
 

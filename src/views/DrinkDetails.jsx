@@ -53,22 +53,23 @@ export default function DrinkDetails() {
                         </div>
                     </div>
                 </div>
-                <div className="md:w-1/2 md:pl-6 h-full bg-orange-gradient flex flex-col justify-around rounded-md items-center mr-24">
-                    <div className="w-full">
-                        <h2 className="text-2xl text-indigo-950 ml-2 mt-2 mb-2">Ingredients</h2>
-                        <ul className="list-disc list-inside mb-4">
+                <div className="w-full md:w-1/2 md:pl-6 h-full bg-orange-gradient flex flex-col justify-around rounded-md items-center mr-24 xl:ml-48 lg:ml-48 md:ml-48 sm:mr-2 2xl:w-4/12 2xl:mr-52 xl:w-6/12 xs:flex xs:flex-col xs:justify-center xs:items-center">
+                    <div className="w-full 2xl:w-11/12 2xl:mr-28 xl:ml-20 xl:mr-3 xs:flex xs:flex-col xs:justify-center xs:items-center md:mr-20">
+                        <h2 className="2xl:ml-14 ml-8 text-2xl text-indigo-950 ml-2 mt-2 mb-2 2xl:ml-7 xl:ml-7 md:mr-24 sm:ml-14 xl:ml-12">Ingredients</h2>
+                        <ul className="ml-6 list-disc list-inside mb-4 2xl:mr-14 md:mr-2 lg:mr-5 xl:mr-44">
                             {ingredients.map((ingredient, index) => (
-                                <span key={index} className="block text-lg m-2 px-4 py-1 bg-indigo-950 text-white rounded-md mr-7">
+                                <span key={index} className="block text-lg m-2 px-4 py-1 bg-indigo-950 text-white rounded-md mr-7 md:w-72 sm:w-92 sm:ml-7 2xl:w-full xl:w-96
+                                2xl:mr-2 lg:w-full xl:w-full" >
                                     🔸 {measurements[index]} {ingredient}
                                 </span>
                             ))}
                         </ul>
                     </div>
-                    <div className="w-full mr-6 mb-2">
-                        <h2 className="text-2xl text-indigo-950 ml-2 text-center mb-2 m-2">Instructions</h2>
-                        <div className="bg-indigo-950 rounded-md text-lg text-white font-sans">
+                    <div className="sm:w-11/12 sm:mr-10 xs:ml-10 2xl:w-11/12 2xl:mb-4 mr-6 mb-2 md:mr-12 lg:mr-16">
+                        <h2 className="text-2xl text-indigo-950 ml-2 text-center mb-2 m-2 lg:ml-12">Instructions</h2>
+                        <div className="ml-6 mb-2 2xl:w-11/12 2xl:ml-9 bg-indigo-950 rounded-md text-lg text-white font-sans sm:w-92 sm:ml-6 md:w-72 xs:w-92 xs:ml-6 xs:w-72 lg:w-92 lg:ml-6 lg:w-72 xl:w-96 xl:mr-5 sm:w-full lg:w-full xl:ml-20">
                             {steps.map((step, index) => (
-                                <p key={index} className="m-1">
+                                <p key={index} className="m-4 2xl:m-2 2xl:ml-4 xl:m-2 xl:ml-4 md:m-2 md:ml-4 sm:m-2 sm:ml-4 xs:m-2 xs:ml-4 xl:w-100">
                                     Step {index + 1}: {step}
                                 </p>
                             ))}

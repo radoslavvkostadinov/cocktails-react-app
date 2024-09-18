@@ -46,15 +46,15 @@ export default function CardItem({ id, title, image, onFavoriteChange }) {
 
     return (
         <Card
-            className="relative w-10/12 h-80 mx-auto flex flex-col justify-center items-center shadow-2xl bg-gray-100 rounded-md"
+            className="relative w-80 h-82 mx-auto flex flex-col justify-center items-center shadow-2xl bg-gray-100 rounded-md"
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
         >
             <div className="flex flex-col justify-center items-center">
                 <img src={image}
                     alt={title}
-                    className="rounded-md w-full p-2 rounded-xl" />
-                <CardTitle className="text-center mb-1">{title}</CardTitle>
+                    className="rounded-md w-full h-full p-2 rounded-xl" />
+                <CardTitle className="text-center mb-2">{title}</CardTitle>
             </div>
             {isHovered && (
                 <>

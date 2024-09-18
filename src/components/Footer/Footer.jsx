@@ -6,8 +6,9 @@ export default function Footer() {
                 <div className="flex items-center justify-center">
                     <nav>
                         <ul className="space">
-                            <li><a href="/" className="link link-hover text-base text-gray-400 hover:text-indigo-950 transition-colors">Best Sellers</a></li>
+                            <li><a href="/" className="link link-hover text-base text-gray-400 hover:text-indigo-950 transition-colors">Home</a></li>
                             <li><a href="/categories" className="link link-hover text-base text-gray-400 hover:text-indigo-950 transition-colors">Categories</a></li>
+                            <li><a href="/non-alcoholic" className="link link-hover text-base text-gray-400 hover:text-indigo-950 transition-colors">Non-alcoholic</a></li>
                         </ul>
                     </nav>
                 </div>
@@ -16,6 +17,7 @@ export default function Footer() {
                         <ul className="space">
                             <li><a href="/random" className="link link-hover text-base text-gray-400 text-base hover:text-indigo-950 transition-colors">Surprise me</a></li>
                             <li><a href="/favorites" className="link link-hover text-base text-gray-400 hover:text-indigo-950 transition-colors">Favorites</a></li>
+                            <li><a href="/about" className="link link-hover text-base text-gray-400 hover:text-indigo-950 transition-colors">About</a></li>
                         </ul>
                     </nav>
                 </div>

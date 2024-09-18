@@ -11,16 +11,16 @@ import { Link } from 'react-router-dom';
 
 export default function NavBar() {
     return (
-        <header className="flex bg-white drop-shadow-md justify-between items-center h-16 px-4 md:px-6 lg:px-10 xl:px-16">
-            <a href="/">
+        <header className="flex bg-white drop-shadow-md justify-between items-center h-16 px-4 md:px-6 lg:px-10 xl:px-16 md:flex">
+            <a href="/"
+            >
                 <img
                     src={logo}
-                    style={{ width: '280px', height: '280px' }}
-                    alt="logo"
+                    className='sm:w-64 sm:h-64 sm:ml-64 md:w-64 md:h-60 md:ml-64 lg:ml-0'
                 />
             </a>
             <NavigationMenu>
-                <NavigationMenuList>
+                <NavigationMenuList className="hidden lg:flex">
                     <NavigationMenuItem>
                         <Link to="/">
                             <NavigationMenuTrigger className="text-indigo-950">Home</NavigationMenuTrigger>
@@ -37,17 +37,22 @@ export default function NavBar() {
                         </Link>
                     </NavigationMenuItem>
                     <NavigationMenuItem>
+                        <Link to="/non-alcoholic">
+                            <NavigationMenuTrigger className="text-indigo-950">Non-alcoholic</NavigationMenuTrigger>
+                        </Link>
+                    </NavigationMenuItem>
+                    <NavigationMenuItem>
                         <Link to="/about">
                             <NavigationMenuTrigger className="text-indigo-950">About us</NavigationMenuTrigger>
                         </Link>
                     </NavigationMenuItem>
                 </NavigationMenuList>
             </NavigationMenu>
-            <div>
+            
                 <Link to="/search">
                     <Button
-                        variant='ghost'
-                        className="text-indigo-950"
+                        variant='icon'
+                        className="text-indigo-950 fixed top-4 right-8"
 
                     >
                         <svg
@@ -66,8 +71,8 @@ export default function NavBar() {
                 </Link>
                 <Link to="/favorites">
                     <Button
-                        variant='ghost'
-                        className="text-indigo-950"
+                        variant='icon'
+                       className="text-indigo-950 fixed top-4 right-1"
                     >
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
@@ -83,7 +88,6 @@ export default function NavBar() {
                         </svg>
                     </Button>
                 </Link>
-            </div>
         </header>
     )
 }

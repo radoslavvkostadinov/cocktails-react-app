@@ -53,7 +53,7 @@ export default function DrinkDetails() {
                         </div>
                     </div>
                 </div>
-                <div className="md:w-1/2 md:pl-6 h-full bg-white-wall flex flex-col justify-around rounded-md items-center mr-24">
+                <div className="md:w-1/2 md:pl-6 h-full bg-orange-gradient flex flex-col justify-around rounded-md items-center mr-24">
                     <div className="w-full">
                         <h2 className="text-2xl text-indigo-950 ml-2 mt-2 mb-2">Ingredients</h2>
                         <ul className="list-disc list-inside mb-4">

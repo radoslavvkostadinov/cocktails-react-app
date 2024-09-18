@@ -1,5 +1,4 @@
 import BiggerCardItem from "@/components/BiggerCardItem/BiggerCardItem";
-import CardItem from "@/components/Card/CardItem";
 import Loading from "@/components/Loading/Loading";
 import { Button } from "@/components/ui/button";
 import { useDrinksStore } from "@/store/drinksStore";
@@ -24,7 +23,10 @@ export default function RandomDrink() {
     if (!drinks) return <div>No drink found</div>;
     return (
         <>
-            <div className="flex flex-col items-center justify-center min-h-screen p-10 w-11/12">
+            <div className="flex justify-center items-center h-28 bg-indigo-950">
+                <h1 className="text-4xl text-white">Bartender's Surprise</h1>
+            </div>
+            <div className="bg- flex flex-col items-center justify-center min-h-screen p-10 w-full">
                 {drink && (
                     <BiggerCardItem
                         strDrinkThumb={drink.strDrinkThumb}

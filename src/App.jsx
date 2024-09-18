@@ -11,6 +11,7 @@ import Footer from "./components/Footer/Footer";
 import RandomDrink from "./views/RandomDrink";
 import FavoriteDrinks from "./views/FavoriteDrinks";
 import SearchDrinks from "./views/SearchDrinks";
+import NonAlcoholicDrinks from "./views/NonAlcoholicDrinks";
 
 
 function App() {
@@ -26,6 +27,7 @@ function App() {
           <Route path='/random' element={<RandomDrink />} />
           <Route path='/favorites' element={<FavoriteDrinks />} />
           <Route path='/search' element={<SearchDrinks />} />
+          <Route path='/non-alcoholic' element={<NonAlcoholicDrinks />} />
         </Routes>
       </main>
       <Footer />

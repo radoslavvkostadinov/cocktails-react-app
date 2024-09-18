@@ -10,7 +10,8 @@ export default {
 			backgroundImage: {
 				'orange-wall': "url('/src/images/fresh.jpg')",
 				'wallpaper': "url('/src/images/wallpaper.jpg')",
-				'white-wall': "url('/src/images/white-wall.jpg')",
+				'orange-gradient': "url('/src/images/orange-gradient.jpg')",
+				'pattern': "url('/src/images/pattern.jpg')",
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
@@ -60,7 +61,16 @@ export default {
 				},
 				fontFamily: {
 					roboto: ['Roboto', 'sans-serif'],
-				  },
+				},
+				screens: {
+					'xs': '345px',
+					'sm': '640px',
+					'md': '768px',
+					'lg': '1050px',
+					'xl': '1380px',
+					'2xl': '1536px',
+				}
+
 			}
 		}
 	},

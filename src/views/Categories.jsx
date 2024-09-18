@@ -43,7 +43,6 @@ export default function Categories() {
     return (
         <>
             <SelectCategory onClick={handleCategoryChange} />
-
             {chooseCategory && (
                 <div className="bg-indigo-950 pt-5 pb-4">
                     {currentItems && currentItems.length > 0 ? (

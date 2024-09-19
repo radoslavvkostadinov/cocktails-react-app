@@ -12,6 +12,7 @@ import RandomDrink from "./views/RandomDrink";
 import FavoriteDrinks from "./views/FavoriteDrinks";
 import SearchDrinks from "./views/SearchDrinks";
 import NonAlcoholicDrinks from "./views/NonAlcoholicDrinks";
+import PageNotFound from "./views/PageNotFound";
 
 
 function App() {
@@ -28,6 +29,7 @@ function App() {
           <Route path='/favorites' element={<FavoriteDrinks />} />
           <Route path='/search' element={<SearchDrinks />} />
           <Route path='/non-alcoholic' element={<NonAlcoholicDrinks />} />
+          <Route path='*' element={<PageNotFound />} />
         </Routes>
       </main>
       <Footer />

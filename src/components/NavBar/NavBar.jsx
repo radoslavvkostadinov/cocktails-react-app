@@ -7,6 +7,7 @@ import {
 } from "@/components/ui/navigation-menu"
 import { Button } from '../ui/button';
 import { Link } from 'react-router-dom';
+import { useState } from 'react';
 
 
 export default function NavBar() {
@@ -15,7 +16,7 @@ export default function NavBar() {
         setShowComponent(!showComponent);
     };
     return (
-        <header className="z-50 flex bg-white drop-shadow-md justify-between items-center h-16 px-4 md:px-6 lg:px-10 xl:px-16 md:flex">
+        <header className="z-50 flex bg-white drop-shadow-md justify-between items-center h-16 px-4 md:px-6 lg:px-10 xl:px-16 md:flex sticky top-0">
             <span className='2xl:hidden xl:hidden lg:hidden'>
                 <Button
                     variant='icon'
@@ -35,13 +36,11 @@ export default function NavBar() {
                     </div>
                 )}
             </span>
-            <a href="/">
                 <img
                     src={logo}
                     className='sm:w-64 sm:h-64 sm:ml-24 md:w-64 md:h-60 md:ml-32 lg:ml-0 xs:hidden z-0'
                     alt="Logo"
                 />
-            </a>
             <NavigationMenu>
                 <NavigationMenuList className="hidden lg:flex">
                     <NavigationMenuItem>

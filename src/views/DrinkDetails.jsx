@@ -31,7 +31,7 @@ export default function DrinkDetails() {
 
     return (
         <>
-            <h1 className="text-3xl text-white mt-4 text-center font-bold">{drink.strDrink}</h1>
+            <h1 className="text-3xl text-white mt-4 text-center">{drink.strDrink}</h1>
             <div className="mx-auto p-6 rounded-lg shadow-md flex flex-col md:flex-row justify-center">
                 <div className="md:w-1/2 flex flex-col items-center mb-4 w-full h-full md:mb-0">
                     <div>
@@ -56,7 +56,7 @@ export default function DrinkDetails() {
                 </div>
                 <div className="border-2 w-full md:w-1/2 md:pl-6 h-full bg-orange-gradient flex flex-col justify-around rounded-md items-center mr-24 xl:ml-48 lg:ml-48 md:ml-48 sm:mr-2 2xl:w-4/12 2xl:mr-52 xl:w-6/12 xs:flex xs:flex-col xs:justify-center xs:items-center">
                     <div className="w-full 2xl:w-11/12 2xl:mr-28 xl:ml-20 xl:mr-3 xs:flex xs:flex-col xs:justify-center xs:items-center md:mr-20 2xl:mr-52">
-                        <h2 className="2xl:ml-12 ml-8 text-2xl text-indigo-950 ml-2 mt-2 mb-2 2xl:ml-7 xl:ml-7 md:mr-24 sm:ml-14 xl:ml-12">Ingredients</h2>
+                        <h2 className="2xl:ml-14 ml-8 text-2xl text-indigo-950 ml-2 mt-2 mb-2 2xl:ml-7 xl:ml-7 md:mr-24 sm:ml-14 xl:ml-12">Ingredients</h2>
                         <ul className="ml-6 list-disc list-inside mb-4 md:mr-2 lg:mr-5 xl:mr-44 2xl:w-full">
                             {ingredients.map((ingredient, index) => (
                                 <span key={index} className="block text-lg m-2 px-4 py-1 bg-indigo-950 text-white rounded-md mr-7 md:w-72 sm:w-92 sm:ml-7 2xl:w-full xl:w-96

@@ -26,7 +26,7 @@ export default function NavBar() {
                     ☰
                 </Button>
                 {showComponent && (
-                    <div className='absolute top-16 left-0 w-60 bg-white shadow-md flex flex-col items-start p-4 rounded-md'>
+                    <div className='absolute top-16 left-0 w-60 bg-white shadow-md flex flex-col items-start p-4 rounded-md z-50'>
                         <Link to="/" className="text-xl hover:text-orange-400 duration-500 mb-2 ml-2" onClick={handleClick}>Home</Link>
                         <Link to="/categories" className="text-xl hover:text-orange-400 duration-500 mb-2 ml-2" onClick={handleClick}>Categories</Link>
                         <Link to="/random" className="text-xl hover:text-orange-400 duration-500 mb-2 ml-2" onClick={handleClick}>Surprise me</Link>
@@ -38,7 +38,7 @@ export default function NavBar() {
             </span>
                 <img
                     src={logo}
-                    className='sm:w-64 sm:h-64 sm:ml-24 md:w-64 md:h-60 md:ml-32 lg:ml-0 xs:hidden z-0'
+                    className='sm:w-64 sm:h-64 sm:ml-24 md:w-64 md:h-60 md:ml-32 lg:ml-0 z-0'
                     alt="Logo"
                 />
             <NavigationMenu>

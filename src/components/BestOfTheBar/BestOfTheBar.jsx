@@ -25,7 +25,6 @@ export default function BestOfTheBar() {
         setCurrentPage(page);
     };
 
-
     const startIndex = (currentPage - 1) * itemsPerPage;
     const endIndex = startIndex + itemsPerPage;
     const currentItems = drinks?.slice(startIndex, endIndex);
@@ -49,13 +48,11 @@ export default function BestOfTheBar() {
                     <p>No drinks found.</p>
                 )}
             </div>
-
             <Paginated
                 totalPages={totalPages}
                 currentPage={currentPage}
                 onPageChange={handlePageChange}
             />
-
         </>
     );
 }

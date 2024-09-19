@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import PropTypes from 'prop-types';
 
 export default function BiggerCardItem({ strDrinkThumb, strDrink, id, title, image }) {
     const [isFavorite, setIsFavorite] = useState(false);
@@ -37,3 +38,11 @@ export default function BiggerCardItem({ strDrinkThumb, strDrink, id, title, ima
         </div>
     );
 }
+
+BiggerCardItem.propTypes = {
+    id: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    image: PropTypes.string.isRequired,
+    strDrinkThumb: PropTypes.string.isRequired,
+    strDrink: PropTypes.string.isRequired,
+};

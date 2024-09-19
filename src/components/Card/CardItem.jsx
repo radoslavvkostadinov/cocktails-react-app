@@ -1,15 +1,11 @@
-
 import {
     Card,
-    CardContent,
-    CardDescription,
-    CardFooter,
-    CardHeader,
     CardTitle,
 } from "@/components/ui/card"
 import { useEffect, useState } from "react";
 import { Button } from "../ui/button";
 import { Link } from "react-router-dom";
+import PropTypes from 'prop-types';
 
 
 export default function CardItem({ id, title, image, onFavoriteChange }) {
@@ -81,3 +77,10 @@ export default function CardItem({ id, title, image, onFavoriteChange }) {
         </Card>
     );
 }
+
+CardItem.propTypes = {
+    id: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    image: PropTypes.string.isRequired,
+    onFavoriteChange: PropTypes.func.isRequired,
+};

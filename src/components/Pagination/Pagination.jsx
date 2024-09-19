@@ -7,6 +7,7 @@ import {
     PaginationNext,
     PaginationPrevious,
 } from "@/components/ui/pagination";
+import PropTypes from 'prop-types';
 
 export default function Paginated({ totalPages, currentPage, onPageChange }) {
     const [current, setCurrent] = useState(currentPage);
@@ -68,3 +69,9 @@ export default function Paginated({ totalPages, currentPage, onPageChange }) {
         </div>
     );
 }
+
+Paginated.propTypes = {
+    totalPages: PropTypes.number.isRequired,
+    currentPage: PropTypes.number.isRequired,
+    onPageChange: PropTypes.func.isRequired,
+};

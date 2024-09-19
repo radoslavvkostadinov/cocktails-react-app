@@ -1,7 +1,6 @@
-// import NavBar from "../NavBar/NavBar";
-
 import { useEffect, useState } from "react";
 import { Button } from "../ui/button";
+import PropTypes from 'prop-types';
 
 export default function SelectCategory({ onClick }) {
 
@@ -68,3 +67,6 @@ export default function SelectCategory({ onClick }) {
     );
 }
 
+SelectCategory.propTypes = {
+    onClick: PropTypes.func.isRequired,
+};

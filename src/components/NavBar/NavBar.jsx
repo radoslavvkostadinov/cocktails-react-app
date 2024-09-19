@@ -10,37 +10,63 @@ import { Link } from 'react-router-dom';
 
 
 export default function NavBar() {
+    const [showComponent, setShowComponent] = useState(false);
+    const handleClick = () => {
+        setShowComponent(!showComponent);
+    };
     return (
-        <header className="flex bg-white drop-shadow-md justify-between items-center h-16 px-4 md:px-6 lg:px-10 xl:px-16 md:flex">
-            <img
-                src={logo}
-                className='sm:w-64 sm:h-64 sm:ml-64 md:w-64 md:h-60 md:ml-64 lg:ml-0'
-            />
+        <header className="z-50 flex bg-white drop-shadow-md justify-between items-center h-16 px-4 md:px-6 lg:px-10 xl:px-16 md:flex">
+            <span className='2xl:hidden xl:hidden lg:hidden'>
+                <Button
+                    variant='icon'
+                    className="text-indigo-950"
+                    onClick={handleClick}
+                >
+                    ☰
+                </Button>
+                {showComponent && (
+                    <div className='absolute top-16 left-0 w-60 bg-white shadow-md flex flex-col items-start p-4 rounded-md'>
+                        <Link to="/" className="text-xl hover:text-orange-400 duration-500 mb-2 ml-2" onClick={handleClick}>Home</Link>
+                        <Link to="/categories" className="text-xl hover:text-orange-400 duration-500 mb-2 ml-2" onClick={handleClick}>Categories</Link>
+                        <Link to="/random" className="text-xl hover:text-orange-400 duration-500 mb-2 ml-2" onClick={handleClick}>Surprise me</Link>
+                        <Link to="/non-alcoholic" className="text-xl hover:text-orange-400 duration-500 mb-2 ml-2" onClick={handleClick}>Non-alcoholic</Link>
+                        <Link to="/about" className="text-xl hover:text-orange-400 duration-500 mb-2 ml-2" onClick={handleClick}>About us</Link>
+
+                    </div>
+                )}
+            </span>
+            <a href="/">
+                <img
+                    src={logo}
+                    className='sm:w-64 sm:h-64 sm:ml-24 md:w-64 md:h-60 md:ml-32 lg:ml-0 xs:hidden z-0'
+                    alt="Logo"
+                />
+            </a>
             <NavigationMenu>
                 <NavigationMenuList className="hidden lg:flex">
                     <NavigationMenuItem>
                         <Link to="/">
-                            <NavigationMenuTrigger className="text-indigo-950">Home</NavigationMenuTrigger>
+                            <NavigationMenuTrigger className="text-indigo-950 hover:text-orange-400 duration-500">Home</NavigationMenuTrigger>
                         </Link>
                     </NavigationMenuItem>
                     <NavigationMenuItem>
                         <Link to="/categories">
-                            <NavigationMenuTrigger className="text-indigo-950">Categories</NavigationMenuTrigger>
+                            <NavigationMenuTrigger className="text-indigo-950 hover:text-orange-400 duration-500">Categories</NavigationMenuTrigger>
                         </Link>
                     </NavigationMenuItem>
                     <NavigationMenuItem>
                         <Link to="/random">
-                            <NavigationMenuTrigger className="text-indigo-950">Surprise me</NavigationMenuTrigger>
+                            <NavigationMenuTrigger className="text-indigo-950 hover:text-orange-400 duration-500">Surprise me</NavigationMenuTrigger>
                         </Link>
                     </NavigationMenuItem>
                     <NavigationMenuItem>
                         <Link to="/non-alcoholic">
-                            <NavigationMenuTrigger className="text-indigo-950">Non-alcoholic</NavigationMenuTrigger>
+                            <NavigationMenuTrigger className="text-indigo-950 hover:text-orange-400 duration-500">Non-alcoholic</NavigationMenuTrigger>
                         </Link>
                     </NavigationMenuItem>
                     <NavigationMenuItem>
                         <Link to="/about">
-                            <NavigationMenuTrigger className="text-indigo-950">About us</NavigationMenuTrigger>
+                            <NavigationMenuTrigger className="text-indigo-950 hover:text-orange-400 duration-500">About us</NavigationMenuTrigger>
                         </Link>
                     </NavigationMenuItem>
                 </NavigationMenuList>

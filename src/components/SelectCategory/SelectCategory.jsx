@@ -13,7 +13,6 @@ export default function SelectCategory({ onClick }) {
     const handleChange = (e) => {
 
         const category = e.target.value;
-        console.log(category);
         setSelectCategory(category);
         onClick(category);
 
@@ -23,6 +22,7 @@ export default function SelectCategory({ onClick }) {
         setSelectCategory(category);
         onClick(category);
     };
+    
     useEffect(() => {
         const handleResize = () => {
             setIsSmallScreen(window.innerWidth < 1050);
@@ -37,7 +37,7 @@ export default function SelectCategory({ onClick }) {
 
     return (
         <>
-            <div className="flex justify-center items-center h-28 bg-wallpaper">
+            <div className="flex justify-center items-center h-28 z-20 mt-10">
                 {isSmallScreen ? (
                     <select
                         className="px-4 py-2 border rounded-md m-10 w-64"

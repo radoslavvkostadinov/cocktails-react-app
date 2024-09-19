@@ -42,7 +42,7 @@ export default function SearchDrinks() {
     const currentItems = filteredDrinks?.slice(startIndex, endIndex);
     return (
         <div className="flex flex-col items-center justify-center">
-            <div className="text-center">
+            <div className="text-center z-10">
                 <input
                     type="text"
                     value={searchTerm}

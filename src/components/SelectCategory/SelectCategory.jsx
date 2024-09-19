@@ -5,22 +5,27 @@ import { Button } from "../ui/button";
 
 export default function SelectCategory({ onClick }) {
 
-    const categories = ["Ordinary Drink", "Cocktail", "Cocoa", "Shot", "Shake", "Beer", "Homemade Liqueur", "Soft Drink"];
+    const categories = ["Select Category", "Ordinary Drink", "Cocktail", "Cocoa", "Shot", "Shake", "Beer", "Homemade Liqueur", "Soft Drink"];
 
     const [isSmallScreen, setIsSmallScreen] = useState(false);
-    const [selectCategory, setSelectCategory] = useState("Select Category")
+    const [selectCategory, setSelectCategory] = useState('')
 
     const handleChange = (e) => {
 
-        const category = categories.find((category) => category === e.target.value);
+        const category = e.target.value;
         console.log(category);
         setSelectCategory(category);
         onClick(category);
+
     }
 
+    const handleButtonClick = (category) => {
+        setSelectCategory(category);
+        onClick(category);
+    };
     useEffect(() => {
         const handleResize = () => {
-            setIsSmallScreen(window.innerWidth < 1380);
+            setIsSmallScreen(window.innerWidth < 1050);
         };
 
         window.addEventListener('resize', handleResize);
@@ -29,6 +34,7 @@ export default function SelectCategory({ onClick }) {
         return () => window.removeEventListener('resize', handleResize);
     }, []);
 
+
     return (
         <>
             <div className="flex justify-center items-center h-28 bg-wallpaper">
@@ -36,10 +42,10 @@ export default function SelectCategory({ onClick }) {
                     <select
                         className="px-4 py-2 border rounded-md m-10 w-64"
                         onChange={handleChange}
+                        value={selectCategory}
                     >
-
                         {categories.map((category) => (
-                            <option key={category} value={category} onChange={() => onClick(handleChange)}>
+                            <option key={category} value={category} >
                                 {category}
                             </option>
                         ))}
@@ -49,7 +55,7 @@ export default function SelectCategory({ onClick }) {
                         <Button
                             key={category}
                             className="bg-orange-wall border text-md text-white m-2 hover:text-indigo-950"
-                            onClick={() => onClick(category)}
+                            onClick={() => handleButtonClick(category)}
                         >
                             {category}
                         </Button>

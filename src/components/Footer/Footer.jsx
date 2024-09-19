@@ -1,7 +1,7 @@
 export default function Footer() {
     return (
         <footer className="bg-white w-full h-full bottom-0 mt-auto">
-            <div className="max-w-7xl p-2 mx-auto grid grid-cols-1 md:grid-cols-3 gap-10 mb-2 h-36">
+            <div className="max-w-7xl p-2 mx-auto grid grid-cols-1 grid-cols-3 gap-10 mb-2 h-36 sm:grid-cols-3 gap-4 sm:gap-10 mb-2 h-36">
 
                 <div className="flex items-center justify-center">
                     <nav>

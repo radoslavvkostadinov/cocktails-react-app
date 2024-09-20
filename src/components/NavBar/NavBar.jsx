@@ -18,17 +18,12 @@ export default function NavBar() {
 
     };
 
-    const navigate = useNavigate();
-
-    const handleHomeClick = () => {
-        navigate('/');
-    };
     return (
         <header className="z-50 flex bg-white drop-shadow-md justify-between items-center h-16 px-4 md:px-6 lg:px-10 xl:px-16 md:flex sticky top-0">
             <span className='2xl:hidden xl:hidden lg:hidden'>
                 <Button
                     variant='icon'
-                    className="text-indigo-950"
+                    className="text-indigo-950 rounded-full bg-orange-200"
                     onClick={handleClick}
                 >
                     ☰
@@ -45,11 +40,9 @@ export default function NavBar() {
                 )}
             </span>
             <img
-
                 src={logo}
-                className='sm:w-64 sm:h-64 sm:ml-24 md:w-64 md:h-60 md:ml-32 lg:ml-0 z-0 cursor-auto hover:cursor-pointer'
+                className='sm:w-64 sm:h-64 sm:ml-24 md:w-64 md:h-60 md:ml-32 lg:ml-0 z-0'
                 alt="Logo"
-                onClick={handleHomeClick}
             />
             <NavigationMenu>
                 <NavigationMenuList className="hidden lg:flex">

@@ -8,25 +8,36 @@ export default function SearchDrinks() {
     const { drinks, loading, error, fetchDrinks } = useDrinksStore();
     const [searchTerm, setSearchTerm] = useState('');
     const [filteredDrinks, setFilteredUsers] = useState([])
-
+    const [debouncedSearchTerm, setDebouncedSearchTerm] = useState(searchTerm);
 
     const handleSearchChange = (event) => {
         setSearchTerm(event.target.value);
+    };
 
+    useEffect(() => {
+        const timerId = setTimeout(() => {
+            setDebouncedSearchTerm(searchTerm);
+        }, 500);
+
+        return () => {
+            clearTimeout(timerId);
+        };
+    }, [searchTerm]);
+
+    useEffect(() => {
         const beverages = drinks?.filter(drink =>
-            drink.strDrink.toLowerCase().includes(searchTerm.toLowerCase())
+            drink.strDrink.toLowerCase().includes(debouncedSearchTerm.toLowerCase())
         );
 
         setFilteredUsers(beverages);
-    };
-
+    }, [debouncedSearchTerm, drinks]);
 
     useEffect(() => {
-        const url = searchTerm ?
-            `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${searchTerm}` :
+        const url = debouncedSearchTerm ?
+            `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${debouncedSearchTerm}` :
             'https://www.thecocktaildb.com/api/json/v1/1/search.php?s=a';
         fetchDrinks(url);
-    }, [fetchDrinks, searchTerm]);
+    }, [fetchDrinks, debouncedSearchTerm]);
 
 
     if (loading) return <Loading />;
@@ -34,7 +45,7 @@ export default function SearchDrinks() {
 
     return (
         <div className="flex flex-col items-center justify-center">
-            <div className="text-center z-10 s:mr-16 s:mt-20  mt-28 mr-20">
+            <div className="text-center z-10 s:mr-16 s:mt-20  mt-20 mr-20">
                 <input
                     type="text"
                     value={searchTerm}

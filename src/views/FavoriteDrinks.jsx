@@ -11,7 +11,6 @@ export default function FavoriteDrinks() {
 
   useEffect(() => {
     const storedFavorites = JSON.parse(localStorage.getItem('favorites')) || [];
-    console.log(favoriteDrinks);
     setFavoriteDrinks(storedFavorites);
   }, []);
 

@@ -27,7 +27,7 @@ export default function BiggerCardItem({ strDrinkThumb, strDrink, id, title, ima
     return (
         <div className="relative" >
             <img src={strDrinkThumb} alt={strDrink} className="w-full h-full rounded-lg shadow-lg mb-4 transition-opacity duration-300" />
-            <div className="absolute inset-0 flex justify-center items-center">
+            <div className="absolute inset-0 z-40 flex justify-center items-center">
                 <button onClick={toggleFavorite} className="absolute top-1 right-1">
                     <span className="text-4xl">
                         {isFavorite ? '❤️' : '🤍'}
@@ -40,9 +40,9 @@ export default function BiggerCardItem({ strDrinkThumb, strDrink, id, title, ima
 }
 
 BiggerCardItem.propTypes = {
-    id: PropTypes.string.isRequired,
-    title: PropTypes.string.isRequired,
-    image: PropTypes.string.isRequired,
-    strDrinkThumb: PropTypes.string.isRequired,
-    strDrink: PropTypes.string.isRequired,
+    id: PropTypes.string,
+    title: PropTypes.string,
+    image: PropTypes.string,
+    strDrinkThumb: PropTypes.string,
+    strDrink: PropTypes.string,
 };

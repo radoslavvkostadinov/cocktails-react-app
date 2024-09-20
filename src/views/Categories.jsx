@@ -20,7 +20,6 @@ export default function Categories() {
 
     const handleCategoryChange = (category) => {
 
-        console.log(category);
         const drink = category === 'Ordinary Drink' ?
             'Ordinary_Drink' : category
         setChooseCategory(drink);

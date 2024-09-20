@@ -1,4 +1,4 @@
-import {create} from 'zustand';
+import { create } from 'zustand';
 import { persist, devtools } from 'zustand/middleware';
 
 const drinksStore = (set) => ({

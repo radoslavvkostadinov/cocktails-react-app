@@ -68,5 +68,5 @@ export default function SelectCategory({ onClick }) {
 }
 
 SelectCategory.propTypes = {
-    onClick: PropTypes.func.isRequired,
+    onClick: PropTypes.func,
 };

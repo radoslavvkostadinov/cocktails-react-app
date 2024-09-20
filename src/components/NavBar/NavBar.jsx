@@ -6,14 +6,22 @@ import {
     NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu"
 import { Button } from '../ui/button';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 
 
 export default function NavBar() {
+
     const [showComponent, setShowComponent] = useState(false);
     const handleClick = () => {
         setShowComponent(!showComponent);
+
+    };
+
+    const navigate = useNavigate();
+
+    const handleHomeClick = () => {
+        navigate('/');
     };
     return (
         <header className="z-50 flex bg-white drop-shadow-md justify-between items-center h-16 px-4 md:px-6 lg:px-10 xl:px-16 md:flex sticky top-0">
@@ -36,11 +44,13 @@ export default function NavBar() {
                     </div>
                 )}
             </span>
-                <img
-                    src={logo}
-                    className='sm:w-64 sm:h-64 sm:ml-24 md:w-64 md:h-60 md:ml-32 lg:ml-0 z-0'
-                    alt="Logo"
-                />
+            <img
+
+                src={logo}
+                className='sm:w-64 sm:h-64 sm:ml-24 md:w-64 md:h-60 md:ml-32 lg:ml-0 z-0 cursor-auto hover:cursor-pointer'
+                alt="Logo"
+                onClick={handleHomeClick}
+            />
             <NavigationMenu>
                 <NavigationMenuList className="hidden lg:flex">
                     <NavigationMenuItem>

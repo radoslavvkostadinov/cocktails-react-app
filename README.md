@@ -1,8 +1,40 @@
-# React + Vite
+# Tasty Sips🍹
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Welcome to **Tasty Sips**, your perfect one stop app for exploring, discovering, and mixing up the most delightful cocktails out there! Whether you're a cocktail lover or just getting started on your mixology journey, we've got something for everyone. 
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Shake up your style with responsive design** for a smooth experience on any device.
+
+- **Popular Cocktails**:
+  - Get surprised with random featured cocktail each time!
+- **Favorite Cocktails List**:
+  - Never lose track of your go to sips save your favorites right in your browser!
+- **Search by Letters and Name**:
+  - Feeling spontaneous? Search the desired cocktails.
+- **Cocktail Details**:
+  - Dive deep with ingredients and instructions.
+
+## About
+
+**TastySips** is a **Single Page Application** built with **React.js**, designed to help you discover cocktails with ease, select by category, and even save your personal favorites. Whether you’re hosting a party or just winding down after a long day, TastySips makes sure your perfect drink is always just a click away!
+
+## Technologies Used
+
+- **JavaScript**
+- **React**
+- **Zustand** for global state management
+- **Tailwind CSS** and **Shadcn** to make it all look as good as your favorite cocktail tastes
+- **Vercel** for deployment
+- **Jest** test for proper UI & UX functionality
+
+
+## API Credits
+
+- **CocktailsDB API** from [TheCocktailDB](https://www.thecocktaildb.com/)
+
+## Build & Run
+
+1. **Run npm i && npm start**
+2. **App should now be running on http://localhost:5173/ or https://cocktails-react-app.vercel.app/ **
+3. **Enjoy!**

@@ -6,7 +6,7 @@ import {
     NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu"
 import { Button } from '../ui/button';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { useState } from 'react';
 
 
@@ -23,7 +23,7 @@ export default function NavBar() {
             <span className='2xl:hidden xl:hidden lg:hidden'>
                 <Button
                     variant='icon'
-                    className="text-indigo-950 rounded-full bg-orange-200"
+                    className="text-indigo-950 rounded-full bg-gray-200"
                     onClick={handleClick}
                 >
                     ☰

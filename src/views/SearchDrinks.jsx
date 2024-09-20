@@ -17,7 +17,7 @@ export default function SearchDrinks() {
     useEffect(() => {
         const timerId = setTimeout(() => {
             setDebouncedSearchTerm(searchTerm);
-        }, 500);
+        }, 1000);
 
         return () => {
             clearTimeout(timerId);

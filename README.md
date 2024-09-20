@@ -1,5 +1,5 @@
-# Tasty Sips🍹
- https://cocktails-react-app.vercel.app/
+# Tasty Sips🍹 - https://cocktails-react-app.vercel.app/
+
 Welcome to **Tasty Sips**, your perfect one stop app for exploring, discovering, and mixing up the most delightful cocktails out there! Whether you're a cocktail lover or just getting started on your mixology journey, we've got something for everyone. 
 
 ## Features

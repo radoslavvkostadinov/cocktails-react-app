@@ -68,7 +68,7 @@ export default function DrinkDetails() {
                         </ul>
                     </div>
                     <div className="sm:w-11/12 sm:mr-10 xs:ml-10 2xl:w-11/12 2xl:mb-4 mr-6 mb-2 md:mr-12 lg:mr-16">
-                        <h2 className="text-2xl text-indigo-950 ml-2 text-center mb-2 m-2 lg:ml-12">Instructions</h2>
+                        <h2 className="2xl:ml-20 text-2xl text-indigo-950 ml-2 text-center mb-2 m-2 lg:ml-12">Instructions</h2>
                         <div className="ml-6 mb-2 bg-indigo-950 rounded-md text-lg text-white font-sans sm:w-92 sm:ml-6 md:w-72 xs:w-92 xs:ml-6 xs:w-72 lg:w-92 lg:ml-6 lg:w-72 xl:w-96 xl:mr-5 sm:w-full lg:w-full xl:ml-20 2xl:w-full 2xl:ml-5">
                             {steps.map((step, index) => (
                                 <p key={index} className="m-4 2xl:m-2 2xl:ml-4 xl:m-2 xl:ml-4 md:m-2 md:ml-4 sm:m-2 sm:ml-4 xs:m-2 xs:ml-4 xl:w-100">

@@ -17,7 +17,7 @@ Welcome to **Tasty Sips**, your perfect one stop app for exploring, discovering,
 
 ## About
 
-**TastySips** is a **Single Page Application** built with **React.js**, designed to help you discover cocktails with ease, select by category, and even save your personal favorites. Whether you’re hosting a party or just winding down after a long day, TastySips makes sure your perfect drink is always just a click away!
+**Tasty Sips** is a **Single Page Application** built with **React.js**, designed to help you discover cocktails with ease, select by category, and even save your personal favorites. Whether you’re hosting a party or just winding down after a long day, Tasty Sips makes sure your perfect drink is always just a click away!
 
 ## Technologies Used
 

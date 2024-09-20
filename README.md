@@ -35,6 +35,6 @@ Welcome to **Tasty Sips**, your perfect one stop app for exploring, discovering,
 
 ## Build & Run
 
-1. **Run npm i && npm start**
+1. **Run npm i && npm run dev**
 2. **App should now be running on http://localhost:5173/**
 3. **Enjoy!**

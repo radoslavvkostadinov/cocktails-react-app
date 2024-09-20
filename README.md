@@ -26,7 +26,7 @@ Welcome to **Tasty Sips**, your perfect one stop app for exploring, discovering,
 - **Zustand** for global state management
 - **Tailwind CSS** and **Shadcn** to make it all look as good as your favorite cocktail tastes
 - **Vercel** for deployment
-- **Jest** test for proper UI & UX functionality
+- **Jest** tests for proper checking UI & UX functionality
 
 
 ## API Credits

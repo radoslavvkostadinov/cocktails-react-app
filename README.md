@@ -1,6 +1,6 @@
 # Tasty Sips🍹 - https://cocktails-react-app.vercel.app
 
-Welcome to **Tasty Sips**, your perfect one stop app for exploring, discovering, and mixing up the most delightful cocktails out there! Whether you're a cocktail lover or just getting started on your mixology journey, we've got something for everyone. 
+**Tasty Sips** is a **Single Page Application** built with **React.js**, designed to help you discover cocktails with ease, select by category, and even save your personal favorites. Whether you’re hosting a party or just winding down after a long day, Tasty Sips makes sure your perfect drink is always just a click away!
 
 ## Features
 
@@ -14,10 +14,6 @@ Welcome to **Tasty Sips**, your perfect one stop app for exploring, discovering,
   - Feeling spontaneous? Search the desired cocktails.
 - **Cocktail Details**:
   - Dive deep with ingredients and instructions.
-
-## About
-
-**Tasty Sips** is a **Single Page Application** built with **React.js**, designed to help you discover cocktails with ease, select by category, and even save your personal favorites. Whether you’re hosting a party or just winding down after a long day, Tasty Sips makes sure your perfect drink is always just a click away!
 
 ## Technologies Used
 

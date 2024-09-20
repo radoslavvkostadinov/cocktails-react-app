@@ -1,4 +1,4 @@
-# Tasty Sips🍹
+# Tasty Sips🍹 - https://cocktails-react-app.vercel.app
 
 Welcome to **Tasty Sips**, your perfect one stop app for exploring, discovering, and mixing up the most delightful cocktails out there! Whether you're a cocktail lover or just getting started on your mixology journey, we've got something for everyone. 
 
@@ -17,7 +17,7 @@ Welcome to **Tasty Sips**, your perfect one stop app for exploring, discovering,
 
 ## About
 
-**TastySips** is a **Single Page Application** built with **React.js**, designed to help you discover cocktails with ease, select by category, and even save your personal favorites. Whether you’re hosting a party or just winding down after a long day, TastySips makes sure your perfect drink is always just a click away!
+**Tasty Sips** is a **Single Page Application** built with **React.js**, designed to help you discover cocktails with ease, select by category, and even save your personal favorites. Whether you’re hosting a party or just winding down after a long day, Tasty Sips makes sure your perfect drink is always just a click away!
 
 ## Technologies Used
 
@@ -26,7 +26,7 @@ Welcome to **Tasty Sips**, your perfect one stop app for exploring, discovering,
 - **Zustand** for global state management
 - **Tailwind CSS** and **Shadcn** to make it all look as good as your favorite cocktail tastes
 - **Vercel** for deployment
-- **Jest** test for proper UI & UX functionality
+- **Jest** tests for proper checking UI & UX functionality
 
 
 ## API Credits
@@ -35,6 +35,6 @@ Welcome to **Tasty Sips**, your perfect one stop app for exploring, discovering,
 
 ## Build & Run
 
-1. **Run npm i && npm start**
-2. **App should now be running on http://localhost:5173/ or https://cocktails-react-app.vercel.app/ **
+1. **Run npm i && npm run dev**
+2. **App should now be running on http://localhost:5173/**
 3. **Enjoy!**

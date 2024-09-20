@@ -23,7 +23,7 @@ export default function RandomDrink() {
     return (
         <>
             <div className="flex justify-center items-center h-28 bg-indigo-950">
-                <h1 className="text-4xl text-orange-200">Bartender's Surprise</h1>
+                <h1 className="text-4xl text-white">Bartender's Surprise</h1>
             </div>
             <div className="bg- flex flex-col items-center justify-center min-h-screen p-10 w-full">
                 {drink && (

@@ -3,7 +3,7 @@ export default function About() {
     return (
         <>
             <div className="flex justify-center items-center h-28 bg-indigo-950">
-                <h1 className="text-4xl text-orange-200">About us</h1>
+                <h1 className="text-4xl text-white">About us</h1>
             </div>
             <div className="pb-16 flex flex-col items-center justify-center">
                 <div className="bg-orange-gradient flex items-center justify-center w-7/12 h-full mt-24 rounded-md lg:mb-28 md:mb-28 md:w-11/12 sm:mb-24 sm:w-11/12 s:mb-16 s:w-10/12">

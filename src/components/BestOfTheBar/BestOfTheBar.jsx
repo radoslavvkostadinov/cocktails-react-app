@@ -32,7 +32,7 @@ export default function BestOfTheBar() {
     return (
         <>
             <Header title='Best Of The Bar' />
-            <div className="bg-indigo-950 pt-5 pb-3">
+            <div data-testid="indigo-div" className="bg-indigo-950 pt-5 pb-3">
                 {currentItems && currentItems.length > 0 ? (
                     <div className="grid grid-cols-1 sm:grid-cols-2 sm:m-2 sm:gap-10 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-5 gap-6 m-5 h-full">
                         {currentItems.map((drink) => (

@@ -1,14 +1,11 @@
 import CardItem from '@/components/Card/CardItem';
 import Loading from '@/components/Loading/Loading';
-import Paginated from '@/components/Pagination/Pagination';
 import { useDrinksStore } from '@/store/drinksStore';
 import { useEffect, useState } from 'react';
 
 export default function SearchDrinks() {
 
     const { drinks, loading, error, fetchDrinks } = useDrinksStore();
-    const [currentPage, setCurrentPage] = useState(1);
-    const itemsPerPage = 15;
     const [searchTerm, setSearchTerm] = useState('');
     const [filteredDrinks, setFilteredUsers] = useState([])
 
@@ -28,7 +25,6 @@ export default function SearchDrinks() {
         const url = searchTerm ?
             `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${searchTerm}` :
             'https://www.thecocktaildb.com/api/json/v1/1/search.php?s=a';
-        // console.log(url);
         fetchDrinks(url);
     }, [fetchDrinks, searchTerm]);
 
@@ -36,13 +32,9 @@ export default function SearchDrinks() {
     if (loading) return <Loading />;
     if (error) return <p>Error: {error.message}</p>;
 
-
-    const startIndex = (currentPage - 1) * itemsPerPage;
-    const endIndex = startIndex + itemsPerPage;
-    const currentItems = filteredDrinks?.slice(startIndex, endIndex);
     return (
         <div className="flex flex-col items-center justify-center">
-            <div className="text-center z-10 s:mr-16 s:mt-20">
+            <div className="text-center z-10 s:mr-16 s:mt-20  mt-20 mr-20">
                 <input
                     type="text"
                     value={searchTerm}
@@ -54,9 +46,9 @@ export default function SearchDrinks() {
             </div>
             {searchTerm && (
                 <div className="bg-indigo-950 pt-5 pb-4 w-full">
-                    {currentItems && currentItems.length > 0 ? (
+                    {filteredDrinks && filteredDrinks.length > 0 ? (
                         <div className="grid grid-cols-1 sm:grid-cols-2 sm:m-2 sm:gap-10 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-5 gap-6 m-5 h-full">
-                            {currentItems.map((drink) => (
+                            {filteredDrinks.map((drink) => (
                                 <CardItem
                                     key={drink.idDrink}
                                     id={drink.idDrink}

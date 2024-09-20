@@ -1,4 +1,5 @@
 import * as React from "react"
+import PropTypes from 'prop-types';
 import * as NavigationMenuPrimitive from "@radix-ui/react-navigation-menu"
 import { cva } from "class-variance-authority"
 
@@ -16,7 +17,11 @@ const NavigationMenu = React.forwardRef(({ className, children, ...props }, ref)
     <NavigationMenuViewport />
   </NavigationMenuPrimitive.Root>
 ))
-NavigationMenu.displayName = NavigationMenuPrimitive.Root.displayName
+NavigationMenu.displayName = NavigationMenuPrimitive.Root.displayName;
+NavigationMenu.propTypes = {
+  className: PropTypes.string,
+  children: PropTypes.node.isRequired,
+};
 
 const NavigationMenuList = React.forwardRef(({ className, ...props }, ref) => (
   <NavigationMenuPrimitive.List
@@ -27,7 +32,10 @@ const NavigationMenuList = React.forwardRef(({ className, ...props }, ref) => (
     )}
     {...props} />
 ))
-NavigationMenuList.displayName = NavigationMenuPrimitive.List.displayName
+NavigationMenuList.displayName = NavigationMenuPrimitive.List.displayName;
+NavigationMenuList.propTypes = {
+  className: PropTypes.string,
+}
 
 const NavigationMenuItem = NavigationMenuPrimitive.Item
 
@@ -44,7 +52,10 @@ const NavigationMenuTrigger = React.forwardRef(({ className, children, ...props 
   </NavigationMenuPrimitive.Trigger>
 ))
 NavigationMenuTrigger.displayName = NavigationMenuPrimitive.Trigger.displayName
-
+NavigationMenuTrigger.propTypes = {
+  className: PropTypes.string,
+  children: PropTypes.node.isRequired,
+};
 const NavigationMenuContent = React.forwardRef(({ className, ...props }, ref) => (
   <NavigationMenuPrimitive.Content
     ref={ref}
@@ -54,7 +65,10 @@ const NavigationMenuContent = React.forwardRef(({ className, ...props }, ref) =>
     )}
     {...props} />
 ))
-NavigationMenuContent.displayName = NavigationMenuPrimitive.Content.displayName
+NavigationMenuContent.displayName = NavigationMenuPrimitive.Content.displayName;
+NavigationMenuContent.propTypes = {
+  className: PropTypes.string,
+};
 
 const NavigationMenuLink = NavigationMenuPrimitive.Link
 
@@ -70,7 +84,9 @@ const NavigationMenuViewport = React.forwardRef(({ className, ...props }, ref) =
   </div>
 ))
 NavigationMenuViewport.displayName =
-  NavigationMenuPrimitive.Viewport.displayName
+  NavigationMenuViewport.propTypes = {
+    className: PropTypes.string,
+  };
 
 const NavigationMenuIndicator = React.forwardRef(({ className, ...props }, ref) => (
   <NavigationMenuPrimitive.Indicator
@@ -84,8 +100,10 @@ const NavigationMenuIndicator = React.forwardRef(({ className, ...props }, ref) 
       className="relative top-[60%] h-2 w-2 rotate-45 rounded-tl-sm bg-border shadow-md" />
   </NavigationMenuPrimitive.Indicator>
 ))
-NavigationMenuIndicator.displayName =
-  NavigationMenuPrimitive.Indicator.displayName
+NavigationMenuIndicator.displayName = NavigationMenuPrimitive.Indicator.displayName;
+NavigationMenuIndicator.propTypes = {
+  className: PropTypes.string,
+};
 
 export {
   navigationMenuTriggerStyle,

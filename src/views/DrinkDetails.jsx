@@ -6,6 +6,7 @@ import { Badge } from "@/components/ui/badge";
 import Loading from "@/components/Loading/Loading";
 import BiggerCardItem from "@/components/BiggerCardItem/BiggerCardItem";
 
+
 export default function DrinkDetails() {
 
     const { id } = useParams();
@@ -27,7 +28,7 @@ export default function DrinkDetails() {
 
     const ingredients = search('Ingredient', drink);
     const measurements = search('Measure', drink);
-    const steps = drink.strInstructions ? drink.strInstructions.split('. ') : ['Enjoy'];
+    const steps = drink?.strInstructions ? drink?.strInstructions.split('. ') : ['Enjoy'];
 
     return (
         <>

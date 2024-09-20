@@ -79,8 +79,8 @@ export default function CardItem({ id, title, image, onFavoriteChange }) {
 }
 
 CardItem.propTypes = {
-    id: PropTypes.string.isRequired,
-    title: PropTypes.string.isRequired,
-    image: PropTypes.string.isRequired,
-    onFavoriteChange: PropTypes.func.isRequired,
+    id: PropTypes.string,
+    title: PropTypes.string,
+    image: PropTypes.string,
+    onFavoriteChange: PropTypes.func,
 };

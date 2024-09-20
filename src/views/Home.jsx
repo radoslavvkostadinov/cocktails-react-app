@@ -1,10 +1,9 @@
-import BestSellers from "@/components/BestOfTheBar/BestOfTheBar";
-import Header from "@/components/Header/Header";
+import BestOfTheBar from "@/components/BestOfTheBar/BestOfTheBar";
 
 export default function Home() {
     return (
         <div>
-            <BestSellers />
+            <BestOfTheBar />
         </div>
     )
 }

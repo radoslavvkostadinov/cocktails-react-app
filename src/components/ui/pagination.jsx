@@ -1,4 +1,5 @@
 import * as React from "react"
+import PropTypes from 'prop-types';
 import {
   ChevronLeftIcon,
   ChevronRightIcon,
@@ -18,7 +19,10 @@ const Pagination = ({
     className={cn("mx-auto flex w-full justify-center", className)}
     {...props} />
 )
-Pagination.displayName = "Pagination"
+Pagination.displayName = "Pagination";
+Pagination.propTypes = {
+  className: PropTypes.string,
+};
 
 const PaginationContent = React.forwardRef(({ className, ...props }, ref) => (
   <ul
@@ -26,12 +30,18 @@ const PaginationContent = React.forwardRef(({ className, ...props }, ref) => (
     className={cn("flex flex-row items-center gap-1", className)}
     {...props} />
 ))
-PaginationContent.displayName = "PaginationContent"
+PaginationContent.displayName = "PaginationContent";
+PaginationContent.propTypes = {
+  className: PropTypes.string,
+};
 
 const PaginationItem = React.forwardRef(({ className, ...props }, ref) => (
   <li ref={ref} className={cn("", className)} {...props} />
 ))
-PaginationItem.displayName = "PaginationItem"
+PaginationItem.displayName = "PaginationItem";
+PaginationItem.propTypes = {
+  className: PropTypes.string,
+};
 
 const PaginationLink = ({
   className,
@@ -47,7 +57,12 @@ const PaginationLink = ({
     }), className)}
     {...props} />
 )
-PaginationLink.displayName = "PaginationLink"
+PaginationLink.displayName = "PaginationLink";
+PaginationLink.propTypes = {
+  className: PropTypes.string,
+  isActive: PropTypes.bool,
+  size: PropTypes.oneOf(["icon", "small", "medium", "large"]),
+};
 
 const PaginationPrevious = ({
   className,
@@ -62,7 +77,10 @@ const PaginationPrevious = ({
     <span>Previous</span>
   </PaginationLink>
 )
-PaginationPrevious.displayName = "PaginationPrevious"
+PaginationPrevious.displayName = "PaginationPrevious";
+PaginationPrevious.propTypes = {
+  className: PropTypes.string,
+};
 
 const PaginationNext = ({
   className,
@@ -77,7 +95,10 @@ const PaginationNext = ({
     <ChevronRightIcon className="h-4 w-4" />
   </PaginationLink>
 )
-PaginationNext.displayName = "PaginationNext"
+PaginationNext.displayName = "PaginationNext";
+PaginationNext.propTypes = {
+  className: PropTypes.string,
+};
 
 const PaginationEllipsis = ({
   className,
@@ -91,7 +112,10 @@ const PaginationEllipsis = ({
     <span className="sr-only">More pages</span>
   </span>
 )
-PaginationEllipsis.displayName = "PaginationEllipsis"
+PaginationEllipsis.displayName = "PaginationEllipsis";
+PaginationEllipsis.propTypes = {
+  className: PropTypes.string,
+};
 
 export {
   Pagination,

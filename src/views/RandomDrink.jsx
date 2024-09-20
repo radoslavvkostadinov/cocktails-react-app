@@ -9,22 +9,21 @@ import { Link } from "react-router-dom";
 export default function RandomDrink() {
     const { drinks, loading, error, fetchDrinks } = useDrinksStore();
 
-
     useEffect(() => {
         const url = 'https://www.thecocktaildb.com/api/json/v1/1/random.php';
         fetchDrinks(url);
     }, []);
 
 
-
     const drink = drinks && drinks.length === 1 ? drinks[0] : null;
     if (loading) return <Loading />
     if (error) return <div>Error: {error.message}</div>;
     if (!drinks) return <div>No drink found</div>;
+
     return (
         <>
             <div className="flex justify-center items-center h-28 bg-indigo-950">
-                <h1 className="text-4xl text-white">Bartender's Surprise</h1>
+                <h1 className="text-4xl text-orange-200">Bartender's Surprise</h1>
             </div>
             <div className="bg- flex flex-col items-center justify-center min-h-screen p-10 w-full">
                 {drink && (

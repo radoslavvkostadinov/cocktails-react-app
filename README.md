@@ -36,5 +36,5 @@ Welcome to **Tasty Sips**, your perfect one stop app for exploring, discovering,
 ## Build & Run
 
 1. **Run npm i && npm start**
-2. **App should now be running on http://localhost:5173/ or https://cocktails-react-app.vercel.app/ **
+2. **App should now be running on http://localhost:5173/ or click https://cocktails-react-app.vercel.app/**
 3. **Enjoy!**

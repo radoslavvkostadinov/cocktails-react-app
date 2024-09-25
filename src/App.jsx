@@ -1,16 +1,16 @@
-import React from 'react';
 import { Route, Routes } from "react-router-dom"
-import Home from "./views/Home";
-import About from "./views/About";
+import Home from "./pages/Home";
+import About from "./pages/About";
 import NavBar from "./components/NavBar/NavBar";
-import Categories from "./views/Categories";
-import DrinkDetails from "./views/DrinkDetails";
+import Categories from "./pages/Categories";
+import DrinkDetails from "./pages/DrinkDetails";
 import Footer from "./components/Footer/Footer";
-import RandomDrink from "./views/RandomDrink";
-import FavoriteDrinks from "./views/FavoriteDrinks";
-import SearchDrinks from "./views/SearchDrinks";
-import NonAlcoholicDrinks from "./views/NonAlcoholicDrinks";
-import PageNotFound from "./views/PageNotFound";
+import RandomDrink from "./pages/RandomDrink";
+import FavoriteDrinks from "./pages/FavoriteDrinks";
+import SearchDrinks from "./pages/SearchDrinks";
+import NonAlcoholicDrinks from "./pages/NonAlcoholicDrinks";
+import PageNotFound from "./pages/PageNotFound";
+
 
 
 function App() {

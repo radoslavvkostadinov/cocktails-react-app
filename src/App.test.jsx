@@ -1,38 +1,31 @@
 import { render, screen } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
 import App from './App';
-import BestOfTheBar from './components/BestOfTheBar/BestOfTheBar';
-
 
 describe('App Component', () => {
 
-  test('renders Home component for / route', () => {
+  test('renders Home component for / route', async () => {
     render(
       <MemoryRouter initialEntries={['/']}>
         <App />
       </MemoryRouter>
     );
-    screen.debug();
-    const headingElement = screen.findByRole('heading', { level: 1, name: /Best Of The Bar/i });
-    expect(headingElement).toBeInTheDocument();
+    const headerElement = await screen.findByRole('heading', { name: /Best Of The Bar/i });
+    expect(headerElement).toBeInTheDocument();
   });
 
 
-  // test('renders div with specific class names', async () => {
-  //   render(<BestOfTheBar />);
-  //   const divElement = await screen.getByTestId('indigo-div');
-  //   expect(divElement).toHaveClass('bg-indigo-950');
-  // });
-
-  test('renders div with specific class names', () => {
+  test('renders div in Home with specific class name', async () => {
     render(
       <MemoryRouter initialEntries={['/']}>
         <App />
       </MemoryRouter>
     );
-    const divElement = screen.getByTestId('indigo-div');
+
+    const divElement = await screen.findByTestId('indigo-div');
     expect(divElement).toHaveClass('bg-indigo-950');
   });
+
 
   test('renders About component for /about route', () => {
     render(
@@ -42,7 +35,11 @@ describe('App Component', () => {
     );
 
     expect(screen.getByRole('heading', { level: 1, name: /About us/i })).toBeInTheDocument();
+
+    const paragraphs = screen.getAllByRole('paragraph');
+    expect(paragraphs).toHaveLength(3);
   });
+
 
   test('renders Categories component for /categories route', () => {
     render(
@@ -64,14 +61,18 @@ describe('App Component', () => {
     expect(headingElement).toBeInTheDocument();
   });
 
-  test('renders RandomDrink component for /random route', () => {
+
+  test('renders View Recipe button for /random route', async () => {
     render(
       <MemoryRouter initialEntries={['/random']}>
         <App />
       </MemoryRouter>
     );
-    expect(screen.getByText(/Bartender's Surprise/i)).toBeInTheDocument();
+
+    const viewRecipeButton = await screen.findByRole('button', { name: /View Recipe/i });
+    expect(viewRecipeButton).toBeInTheDocument();
   });
+
 
   test('renders FavoriteDrinks component for /favorites route', () => {
     render(
@@ -82,13 +83,16 @@ describe('App Component', () => {
     expect(screen.getByText(/Favorite Drinks/i)).toBeInTheDocument();
   });
 
-  test('renders SearchDrinks component for /search route', () => {
+
+  test('renders SearchDrinks component for /search route', async () => {
     render(
       <MemoryRouter initialEntries={['/search']}>
         <App />
       </MemoryRouter>
     );
-    expect(screen.getByPlaceholderText('Search for drinks...')).toBeInTheDocument();
+
+    const searchInput = await screen.findByPlaceholderText('Search for drinks...');
+    expect(searchInput).toBeInTheDocument();
   });
 
   test('renders NonAlcoholicDrinks component for /non-alcoholic route', async () => {

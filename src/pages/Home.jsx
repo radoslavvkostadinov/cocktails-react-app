@@ -1,11 +1,11 @@
-import { useEffect, useState } from "react";
-import CardItem from "../Card/CardItem";
-import { useDrinksStore } from "@/store/drinksStore";
+import CardItem from "@/components/Card/CardItem";
+import Header from "@/components/Header/Header";
+import Loading from "@/components/Loading/Loading";
 import Paginated from "@/components/Pagination/Pagination";
-import Header from "../Header/Header";
-import Loading from "../Loading/Loading";
+import { useDrinksStore } from "@/store/drinksStore";
+import { useEffect, useState } from "react";
 
-export default function BestOfTheBar() {
+export default function Home() {
 
     const { drinks, loading, error, fetchDrinks } = useDrinksStore();
     const [currentPage, setCurrentPage] = useState(1);

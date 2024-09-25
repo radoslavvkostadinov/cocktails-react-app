@@ -1,6 +1,6 @@
 # Tasty Sips🍹 - https://cocktails-react-app.vercel.app
 
-Welcome to **Tasty Sips**, your perfect one stop app for exploring, discovering, and mixing up the most delightful cocktails out there! Whether you're a cocktail lover or just getting started on your mixology journey, we've got something for everyone. 
+**Tasty Sips** is a **Single Page Application** built with **React.js**, designed to help you discover cocktails with ease, select by category, and even save your personal favorites. Whether you’re hosting a party or just winding down after a long day, Tasty Sips makes sure your perfect drink is always just a click away!
 
 ## Features
 
@@ -15,26 +15,28 @@ Welcome to **Tasty Sips**, your perfect one stop app for exploring, discovering,
 - **Cocktail Details**:
   - Dive deep with ingredients and instructions.
 
-## About
-
-**Tasty Sips** is a **Single Page Application** built with **React.js**, designed to help you discover cocktails with ease, select by category, and even save your personal favorites. Whether you’re hosting a party or just winding down after a long day, Tasty Sips makes sure your perfect drink is always just a click away!
-
 ## Technologies Used
 
 - **JavaScript**
 - **React**
+- **Vite**
 - **Zustand** for global state management
 - **Tailwind CSS** and **Shadcn** to make it all look as good as your favorite cocktail tastes
 - **Vercel** for deployment
 - **Jest** tests for proper checking UI & UX functionality
 
 
-## API Credits
+## Design Principles
 
-- **CocktailsDB API** from [TheCocktailDB](https://www.thecocktaildb.com/)
+This project was developed with a focus on clean, maintainable code, adhering to the following principles:
+
+- **DRY (Don't Repeat Yourself):** Code was written to avoid duplication wherever possible, ensuring that logic is centralized and reusable, reducing redundancy and potential errors.
+- **KISS (Keep It Simple, Stupid):** The code was kept as simple as possible, focusing on readability and simplicity, avoiding unnecessary complexity.
+
+By applying these principles, the project aims to be easy to maintain, extend, and understand.
 
 ## Build & Run
 
-1. **Run npm i && npm run dev**
+1. **Run npm i && npm run dev or npm test**
 2. **App should now be running on http://localhost:5173/**
 3. **Enjoy!**

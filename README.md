@@ -17,7 +17,7 @@
 
 ## Technologies Used
 
-- **JavaScript**
+- **TypeScript**
 - **React**
 - **Vite**
 - **Zustand** for global state management

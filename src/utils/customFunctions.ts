@@ -5,7 +5,7 @@
  * @param {Object} obj - The object to search within.
  * @returns {Array} An array of values whose keys include the search term.
  */
-export const search = (term, obj) => {
+export const search = (term: string, obj: { [key: string]: any }): any[] => {
     let results = [];
     for (let item in obj) {
         if (item.toLowerCase().includes(term.toLowerCase()) && !obj[item]) {

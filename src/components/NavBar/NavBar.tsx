@@ -1,13 +1,13 @@
 import logo from '../../images/logo.png';
 import {
     NavigationMenu,
-    NavigationMenuItem,
     NavigationMenuList,
     NavigationMenuTrigger,
-} from "@/components/ui/navigation-menu"
+} from "../../components/ui/navigation-menu"
 import { Button } from '../ui/button';
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
+import { NavigationMenuItem } from '@radix-ui/react-navigation-menu';
 
 
 export default function NavBar() {
@@ -19,17 +19,18 @@ export default function NavBar() {
     };
 
     return (
-        <header className="z-50 flex bg-white drop-shadow-md justify-between items-center h-16 px-4 md:px-6 lg:px-10 xl:px-16 md:flex sticky top-0">
+        <header className="z-50 flex bg-white drop-shadow-md justify-between items-center h-16 px-4 md:px-6 lg:px-10 xl:px-16 md:flex sticky top-0 z-10">
             <span className='2xl:hidden xl:hidden lg:hidden'>
                 <Button
-                    variant='icon'
+                    size='sm'
+                    variant='ghost'
                     className="text-indigo-950 rounded-full bg-gray-200"
                     onClick={handleClick}
                 >
                     ☰
                 </Button>
                 {showComponent && (
-                    <div className='absolute top-16 left-0 w-60 bg-white shadow-md flex flex-col items-start p-4 rounded-md z-50'>
+                    <div className='absolute top-16 left-0 w-60 bg-white shadow-md flex flex-col items-start p-4 rounded-md'>
                         <Link to="/" className="text-xl hover:text-orange-400 duration-500 mb-2 ml-2" onClick={handleClick}>Home</Link>
                         <Link to="/categories" className="text-xl hover:text-orange-400 duration-500 mb-2 ml-2" onClick={handleClick}>Categories</Link>
                         <Link to="/random" className="text-xl hover:text-orange-400 duration-500 mb-2 ml-2" onClick={handleClick}>Surprise me</Link>
@@ -39,11 +40,13 @@ export default function NavBar() {
                     </div>
                 )}
             </span>
-            <img
-                src={logo}
-                className='sm:w-64 sm:h-64 sm:ml-24 md:w-64 md:h-60 md:ml-32 lg:ml-0 z-0'
-                alt="Logo"
-            />
+            <a href="/" className='relative z-0'>
+                <img
+                    src={logo}
+                    className='relative z-40 sm:w-64 sm:h-64 sm:ml-24 md:w-64 md:h-60 md:ml-32 lg:ml-0'
+                    alt="Logo"
+                />
+            </a>
             <NavigationMenu>
                 <NavigationMenuList className="hidden lg:flex">
                     <NavigationMenuItem>
@@ -76,7 +79,7 @@ export default function NavBar() {
 
             <Link to="/search">
                 <Button
-                    variant='icon'
+                    variant='ghost'
                     className="text-indigo-950 fixed top-4 right-8"
 
                 >
@@ -96,7 +99,7 @@ export default function NavBar() {
             </Link>
             <Link to="/favorites">
                 <Button
-                    variant='icon'
+                    variant='ghost'
                     className="text-indigo-950 fixed top-4 right-1"
                 >
                     <svg

@@ -1,43 +1,38 @@
 import { useEffect } from "react";
-import { useDrinksStore } from "@/store/drinksStore";
 import { useParams } from "react-router-dom";
-import { search } from "@/customFunctions";
-import { Badge } from "@/components/ui/badge";
-import Loading from "@/components/Loading/Loading";
-import BiggerCardItem from "@/components/BiggerCardItem/BiggerCardItem";
-
+import { useDrinksStore } from "../store/drinksStore";
+import Loading from "../components/Loading/Loading";
+import BiggerCardItem from "../components/BiggerCardItem/BiggerCardItem";
+import { Badge } from "../components/ui/badge";
+import { search } from "utils/customFunctions";
 
 export default function DrinkDetails() {
-
     const { id } = useParams();
-    const { fetchDrinks, drinks, loading, error } = useDrinksStore();
-
+    const { fetchDrinks, drinks, loading, error }: { fetchDrinks: (url: string) => void, drinks: any[], loading: boolean, error: { message: string } | null } = useDrinksStore() as { fetchDrinks: (url: string) => void, drinks: any[], loading: boolean, error: { message: string } | null };
 
     useEffect(() => {
         const url = `https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${id}`;
         fetchDrinks(url);
+    }, [fetchDrinks, id]);
 
 
-    }, [fetchDrinks]);
-
-
-    const drink = drinks && drinks.length > 0 ? drinks[0] : null;
     if (loading) return <Loading />;
     if (error) return <div>Error: {error.message}</div>;
-    if (!drinks) return <div>No drink found</div>;
+    if (!drinks || drinks.length === 0) return <div>No drink found</div>;
 
+    const drink = drinks[0];
     const ingredients = search('Ingredient', drink);
     const measurements = search('Measure', drink);
-    const steps = drink?.strInstructions ? drink?.strInstructions.split('. ') : ['Enjoy'];
+    const steps = drink?.strInstructions ? drink.strInstructions.split('. ') : ['Enjoy'];
 
     return (
         <>
             <div className="flex justify-center items-center w-full">
                 <h1 className="text-3xl rounded-md text-white mt-4 text-center bg-indigo-950 w-8/12">{drink.strDrink}</h1>
             </div>
-            <div className="mx-auto p-6 rounded-lg shadow-md flex flex-col md:flex-row justify-center">
+            <div className="z-40 mx-auto p-6 rounded-lg shadow-md flex flex-col md:flex-row justify-center mt-10">
                 <div className="md:w-1/2 flex flex-col items-center mb-4 w-full h-full md:mb-0">
-                    <div>
+                    <div className="z-40">
                         <BiggerCardItem
                             strDrink={drink.strDrink}
                             strDrinkThumb={drink.strDrinkThumb}
@@ -47,12 +42,12 @@ export default function DrinkDetails() {
                         />
                         <div className="2xl:ml-2">
                             <div>
-                                <h1 className="text-white text-xl mb-1 bg-indigo-950 rounded-md w-24">Categories</h1>
-                                <Badge variant="secondary" className="text-base">{drink.strCategory}</Badge>
+                                <h1 className="text-white text-xl mb-1 bg-indigo-950 rounded-md w-24 ml-2">Categories</h1>
+                                <Badge variant="secondary" className="text-base ml-2">{drink.strCategory}</Badge>
                             </div>
                             <div className="mt-4">
-                                <h1 className="text-white text-xl mb-1 bg-indigo-950 rounded-md w-14 p-1">Glass</h1>
-                                <Badge variant="secondary" className="text-base">{drink.strGlass}</Badge>
+                                <h1 className="text-white text-xl mb-1 bg-indigo-950 rounded-md w-14 pl-1 ml-2">Glass</h1>
+                                <Badge variant="secondary" className="text-base ml-2">{drink.strGlass}</Badge>
                             </div>
                         </div>
                     </div>
@@ -72,7 +67,7 @@ export default function DrinkDetails() {
                     <div className="w-full ml-2 flex flex-col items-center justify-center sm:w-11/12 mb-2">
                         <h2 className="text-2xl text-indigo-950 text-lef mb-2">Instructions</h2>
                         <div className="bg-indigo-950 rounded-md text-lg text-white font-sans w-full p-2">
-                            {steps.map((step, index) => (
+                            {steps.map((step: string, index: number) => (
                                 <p key={index} className="m-2 text-lg">
                                     Step {index + 1}: {step}
                                 </p>
@@ -84,4 +79,3 @@ export default function DrinkDetails() {
         </>
     );
 }
-

@@ -1,13 +1,12 @@
-import CardItem from "@/components/Card/CardItem";
-import Loading from "@/components/Loading/Loading";
-import Paginated from "@/components/Pagination/Pagination";
-import SelectCategory from "@/components/SelectCategory/SelectCategory";
-import { useDrinksStore } from "@/store/drinksStore";
 import { useEffect, useState } from "react";
+import { useDrinksStore } from "../store/drinksStore";
+import Loading from "../components/Loading/Loading";
+import SelectCategory from "../components/SelectCategory/SelectCategory";
+import CardItem from "../components/Card/CardItem";
+import Paginated from "../components/Pagination/Pagination";
 
 export default function Categories() {
-
-    const { drinks, loading, error, fetchDrinks } = useDrinksStore();
+    const { drinks, loading, error, fetchDrinks } = useDrinksStore() as { drinks: any[], loading: boolean, error: { message: string } | null, fetchDrinks: (url: string) => void };
     const [currentPage, setCurrentPage] = useState(1);
     const itemsPerPage = 16;
     const [chooseCategory, setChooseCategory] = useState('Ordinary_Drink');
@@ -17,29 +16,26 @@ export default function Categories() {
         fetchDrinks(url);
     }, [fetchDrinks, chooseCategory]);
 
-
-    const handleCategoryChange = (category) => {
-
-        const drink = category === 'Ordinary Drink' ?
-            'Ordinary_Drink' : category
-        setChooseCategory(drink);
+    const handleCategoryChange = (category: string) => {
+        const drinkCategory = category === 'Ordinary Drink' ? 'Ordinary_Drink' : category;
+        setChooseCategory(drinkCategory);
         setCurrentPage(1);
-
     };
+
 
     if (loading) return <Loading />;
     if (error) return <p>Error: {error.message}</p>;
 
     const totalPages = Math.ceil(drinks?.length / itemsPerPage);
 
-    const handlePageChange = (page) => {
+    const handlePageChange = (page: number) => {
         setCurrentPage(page);
     };
-
 
     const startIndex = (currentPage - 1) * itemsPerPage;
     const endIndex = startIndex + itemsPerPage;
     const currentItems = drinks?.slice(startIndex, endIndex);
+
     return (
         <>
             <SelectCategory onClick={handleCategoryChange} />
@@ -60,7 +56,6 @@ export default function Categories() {
                         <p>No drinks found.</p>
                     )}
                 </div>
-
             )}
             <Paginated
                 totalPages={totalPages}
@@ -70,4 +65,3 @@ export default function Categories() {
         </>
     );
 }
-

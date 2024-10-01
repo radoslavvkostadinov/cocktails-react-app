@@ -1,21 +1,25 @@
-import {
-    Card,
-    CardTitle,
-} from "@/components/ui/card"
+
 import { useEffect, useState } from "react";
-import { Button } from "../ui/button";
 import { Link } from "react-router-dom";
-import PropTypes from 'prop-types';
+import React from "react";
+import { Button } from "../ui/button";
+import { Card, CardTitle } from "../ui/card";
 
 
-export default function CardItem({ id, title, image, onFavoriteChange }) {
+interface CardItemProps {
+    id: string;
+    title: string;
+    image: string;
+    onFavoriteChange?: (id: string, isFavorite: boolean) => void;
+}
 
-    const [isHovered, setIsHovered] = useState(false);
-    const [isFavorite, setIsFavorite] = useState(false);
+const CardItem: React.FC<CardItemProps> = ({ id, title, image, onFavoriteChange }) => {
+    const [isHovered, setIsHovered] = useState<boolean>(false);
+    const [isFavorite, setIsFavorite] = useState<boolean>(false);
 
     useEffect(() => {
         try {
-            const storedFavorites = JSON.parse(localStorage.getItem('favorites')) || [];
+            const storedFavorites: { id: string; title: string; image: string }[] = JSON.parse(localStorage.getItem('favorites') || '[]');
             setIsFavorite(storedFavorites.some(drink => drink.id === id));
         } catch (e) {
             console.error('Error parsing favorites from localStorage', e);
@@ -24,21 +28,22 @@ export default function CardItem({ id, title, image, onFavoriteChange }) {
     }, [id]);
 
     const toggleFavorite = () => {
-        const storedFavorites = JSON.parse(localStorage.getItem('favorites')) || [];
-        const updatedFavorites = isFavorite
-            ? storedFavorites.filter(drink => drink.id !== id)
-            : [...storedFavorites, { id, title, image }];
-
-        localStorage.setItem('favorites', JSON.stringify(updatedFavorites));
-        setIsFavorite(!isFavorite);
-
         try {
-            onFavoriteChange(updatedFavorites);
+            const storedFavorites: { id: string; title: string; image: string }[] = JSON.parse(localStorage.getItem('favorites') || '[]');
+            const updatedFavorites = isFavorite
+                ? storedFavorites.filter(drink => drink.id !== id)
+                : [...storedFavorites, { id, title, image }];
 
+            localStorage.setItem('favorites', JSON.stringify(updatedFavorites));
+            setIsFavorite(!isFavorite);
+
+            if (onFavoriteChange) {
+                onFavoriteChange(id, !isFavorite);
+            }
         } catch (e) {
-            e
+            console.error('Error updating favorites in localStorage', e);
         }
-    }
+    };
 
     return (
         <Card
@@ -46,7 +51,7 @@ export default function CardItem({ id, title, image, onFavoriteChange }) {
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
         >
-            <div className="flex flex-col justify-center items-center">
+            <div className="flex flex-col justify-center items-center z-0">
                 <img src={image}
                     alt={title}
                     className="rounded-md w-full h-full p-2 rounded-xl" />
@@ -76,11 +81,6 @@ export default function CardItem({ id, title, image, onFavoriteChange }) {
             )}
         </Card>
     );
-}
-
-CardItem.propTypes = {
-    id: PropTypes.string,
-    title: PropTypes.string,
-    image: PropTypes.string,
-    onFavoriteChange: PropTypes.func,
 };
+
+export default CardItem;

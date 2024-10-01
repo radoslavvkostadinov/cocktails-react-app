@@ -40,13 +40,13 @@ export default function NavBar() {
                     </div>
                 )}
             </span>
-            <a href="/" className='relative z-0'>
+            {!showComponent && (<a href="/" className='relative z-0'>
                 <img
                     src={logo}
-                    className='relative z-40 sm:w-64 sm:h-64 sm:ml-24 md:w-64 md:h-60 md:ml-32 lg:ml-0'
+                    className='relative z-0 sm:w-64 sm:h-64 sm:ml-24 md:w-64 md:h-60 md:ml-32 lg:ml-0'
                     alt="Logo"
                 />
-            </a>
+            </a>)}
             <NavigationMenu>
                 <NavigationMenuList className="hidden lg:flex">
                     <NavigationMenuItem>

@@ -1,7 +1,5 @@
 import * as React from "react";
 import {
-  ChevronLeftIcon,
-  ChevronRightIcon,
   DotsHorizontalIcon,
 } from "@radix-ui/react-icons";
 import { cn } from "../../lib/utils";
@@ -65,7 +63,7 @@ const PaginationLink = React.forwardRef<HTMLAnchorElement, PaginationLinkProps>(
       ref={ref}
       aria-current={isActive ? "page" : undefined}
       className={cn(buttonVariants({
-        variant: isActive ? "outline" : "ghost",
+        variant: isActive ? "ghost" : "ghost",
         size,
       }), className)}
       {...props} />
@@ -84,8 +82,8 @@ const PaginationPrevious = React.forwardRef<HTMLAnchorElement, PaginationPreviou
       size="default"
       className={cn("gap-1 pl-2.5", className || "")}
       {...props}>
-      <ChevronLeftIcon className="h-4 w-4" />
-      <span>Previous</span>
+
+      <span>🡰</span>
     </PaginationLink>
   )
 );
@@ -102,8 +100,7 @@ const PaginationNext = React.forwardRef<HTMLAnchorElement, PaginationNextProps>(
       size="default"
       className={cn("gap-1 pr-2.5", className)}
       {...props}>
-      <span>Next</span>
-      <ChevronRightIcon className="h-4 w-4" />
+      <span>🡲</span>
     </PaginationLink>
   )
 );

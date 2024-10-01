@@ -27,7 +27,7 @@ export default function Paginated({ totalPages, currentPage, onPageChange }: Pag
                     <PaginationLink
                         href="#"
                         onClick={(e: MouseEvent) => { e.preventDefault(); handlePageChange(i); }}
-                        className={i === current ? 'active' : ''}
+                        className={i === current ? 'active text-orange-300' : ''}
                     >
                         {i}
                     </PaginationLink>

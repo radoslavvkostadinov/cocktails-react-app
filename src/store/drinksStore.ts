@@ -18,28 +18,24 @@ interface DrinksStore {
 
 export const useDrinksStore = create<DrinksStore>()(
   devtools(
-    persist(
-      (set) => ({
-        drinks: [],
-        loading: false,
-        error: null,
-        fetchDrinks: async (url: string) => {
-          set({ loading: true, error: null });
-          try {
-            const response = await fetch(url);
-            if (!response.ok) {
-              throw new Error(`HTTP error! status: ${response.status}`);
-            }
-            const data = await response.json();
-            set({ drinks: data.drinks as Drink[], loading: false });
-          } catch (error) {
-            set({ error: error as Error, loading: false });
+    (set) => ({
+      drinks: [],
+      loading: false,
+      error: null,
+      fetchDrinks: async (url: string) => {
+        set({ loading: true, error: null });
+        try {
+          const response = await fetch(url);
+          if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
           }
-        },
-      }),
-      {
-        name: 'drinks',
-      }
-    )
+          const data = await response.json();
+          const drinks = Array.isArray(data.drinks) ? data.drinks : [];
+          set({ drinks: drinks as Drink[], loading: false });
+        } catch (error) {
+          set({ error: error as Error, loading: false });
+        }
+      },
+    })
   )
 );

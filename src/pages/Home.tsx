@@ -15,7 +15,7 @@ export default function Home() {
         fetchDrinks(url);
     }, [fetchDrinks]);
 
-    console.log(drinks);
+
     if (loading) return <Loading />;
     if (error && typeof error === 'object' && error instanceof Error) return <p>Error: {error.message}</p>;
 

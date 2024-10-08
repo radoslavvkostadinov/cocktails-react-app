@@ -11,10 +11,11 @@ export default function Home() {
     const itemsPerPage = 16;
 
     useEffect(() => {
-        const url = "https://www.thecocktaildb.com/api/json/v1/1/search.php?s=";
+        const url = "https://www.thecocktaildb.com/api/json/v1/1/filter.php?a=Alcoholic";
         fetchDrinks(url);
     }, [fetchDrinks]);
 
+    console.log(drinks);
     if (loading) return <Loading />;
     if (error && typeof error === 'object' && error instanceof Error) return <p>Error: {error.message}</p>;
 
